@@ -1,0 +1,472 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Awk内置变量 | Awk Tutorial</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        <meta name="author" content="Qiansen">
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./awk_if.html" />
+    
+    
+    <link rel="prev" href="./awk_variables.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="3"
+        data-chapter-title="Awk内置变量"
+        data-filepath="awk_buildin.md"
+        data-basepath="."
+        data-revision="Mon May 16 2016 14:07:24 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="awk_print.html">
+            
+                
+                    <a href="./awk_print.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Awk打印
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="awk_variables.html">
+            
+                
+                    <a href="./awk_variables.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Awk变量
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="3" data-path="awk_buildin.html">
+            
+                
+                    <a href="./awk_buildin.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Awk内置变量
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="awk_if.html">
+            
+                
+                    <a href="./awk_if.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Awk if语句
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="awk_loop.html">
+            
+                
+                    <a href="./awk_loop.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Awk循环
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="awk_array.html">
+            
+                
+                    <a href="./awk_array.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Awk数组
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="awk_operator.html">
+            
+                
+                    <a href="./awk_operator.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Awk运算符
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="awk_numeric_fun.html">
+            
+                
+                    <a href="./awk_numeric_fun.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        Awk数学函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="awk_sudoku.html">
+            
+                
+                    <a href="./awk_sudoku.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        Awk解决数独问题
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >Awk Tutorial</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="8&#x4E2A;&#x5F3A;&#x5927;&#x7684;awk&#x5185;&#x7F6E;&#x53D8;&#x91CF;">8&#x4E2A;&#x5F3A;&#x5927;&#x7684;Awk&#x5185;&#x7F6E;&#x53D8;&#x91CF;</h1>
+<p>Awk&#x6709;&#x4E00;&#x4E9B;&#x5F3A;&#x5927;&#x7684;&#x5185;&#x7F6E;&#x53D8;&#x91CF;&#xFF0C;&#x5728;Awk&#x4E2D;&#x6709;&#x4E24;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x5185;&#x7F6E;&#x53D8;&#x91CF;&#x3002;</p>
+<ul>
+<li>&#x50CF;&#x57DF;&#x5206;&#x5272;&#x7B26;&#x548C;&#x8BB0;&#x5F55;&#x5206;&#x5272;&#x7B26;&#x90A3;&#x79CD;&#x503C;&#x53EF;&#x53D8;&#x7684;&#x53D8;&#x91CF;</li>
+<li>&#x50CF;&#x57DF;&#x6570;&#x91CF;&#x548C;&#x8BB0;&#x5F55;&#x6570;&#x91CF;&#x90A3;&#x79CD;&#x7528;&#x6765;&#x5904;&#x7406;&#x548C;&#x62A5;&#x544A;&#x7684;&#x53D8;&#x91CF;</li>
+</ul>
+<h3 id="fs&#x4F8B;&#x5B50;&#xFF1A;&#x8F93;&#x5165;&#x57DF;&#x5206;&#x5272;&#x7B26;"><code>FS</code>&#x4F8B;&#x5B50;&#xFF1A;&#x8F93;&#x5165;&#x57DF;&#x5206;&#x5272;&#x7B26;</h3>
+<p>Awk&#x8BFB;&#x53D6;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x9ED8;&#x8BA4;&#x4EE5;&#x7A7A;&#x767D;&#x7B26;&#x5206;&#x5272;&#x6587;&#x4EF6;&#x7684;&#x6BCF;&#x4E00;&#x884C;&#xFF0C;&#x7136;&#x540E;&#x5206;&#x522B;&#x8BBE;&#x7F6E;&#x4E3A;&#x53D8;&#x91CF;$1,$2......Awk&#x7684;<code>FS</code>&#x53D8;&#x91CF;&#x7528;&#x6765;&#x4E3A;&#x6BCF;&#x6761;&#x8BB0;&#x5F55;&#x8BBE;&#x7F6E;&#x5206;&#x5272;&#x7B26;&#x3002;<code>FS</code>&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x6210;&#x4EFB;&#x4F55;&#x5355;&#x5B57;&#x7B26;&#x6216;&#x8005;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x4F7F;&#x7528;&#x57DF;&#x5206;&#x5272;&#x7B26;&#xFF1A;</p>
+<ol>
+<li>&#x4F7F;&#x7528;<code>-F</code>&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;</li>
+<li>&#x50CF;&#x8BBE;&#x7F6E;&#x5176;&#x4ED6;&#x53D8;&#x91CF;&#x90A3;&#x6837;&#x8BBE;&#x7F6E;<code>FS</code></li>
+</ol>
+<pre><code>&#x8BED;&#x6CD5;&#xFF1A;
+$ awk -F &apos;FS&apos; &apos;commands&apos; inputfilename
+(or)
+$ awk &apos;BEGIN{FS=&quot;FS&quot;;}&apos;
+</code></pre><ul>
+<li><code>FS</code>&#x53EF;&#x4EE5;&#x662F;&#x4EFB;&#x4F55;&#x4F60;&#x60F3;&#x7528;&#x6765;&#x4F5C;&#x4E3A;&#x57DF;&#x5206;&#x5272;&#x7B26;&#x7684;&#x5355;&#x5B57;&#x7B26;&#x6216;&#x8005;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</li>
+<li><code>FS</code>&#x53EF;&#x4EE5;&#x5728;&#x4EFB;&#x4F55;&#x65F6;&#x5019;&#x6539;&#x53D8;&#xFF0C;&#x5B83;&#x7684;&#x503C;&#x4F1A;&#x4E00;&#x76F4;&#x4FDD;&#x7559;&#x5230;&#x88AB;&#x6539;&#x53D8;&#x3002;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x6539;&#x53D8;&#x57DF;&#x5206;&#x5272;&#x7B26;&#xFF0C;&#x6700;&#x597D;&#x5728;&#x8BFB;&#x53D6;&#x884C;&#x4E4B;&#x524D;&#x6539;&#x53D8;&#xFF0C;&#x8FD9;&#x6837;&#x6539;&#x53D8;&#x5C31;&#x4F1A;&#x5F71;&#x54CD;&#x8BFB;&#x53D6;&#x7684;&#x6BCF;&#x4E00;&#x884C;&#x3002;</li>
+</ul>
+<p>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;<code>FS</code>&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x8BFB;&#x53D6;&#x4EE5;<code>&apos;:&apos;</code>&#x4F5C;&#x4E3A;&#x5206;&#x5272;&#x7B26;&#x7684;<code>/etc/passwd</code>&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code>$ cat etc_passwd.awk
+BEGIN{
+FS=&quot;:&quot;;
+print &quot;Name\tUserID\tGroupID\tHomeDirectory&quot;;}
+{
+    print $1&quot;\t&quot;$3&quot;\t&quot;$4&quot;\t&quot;$6;
+}
+END {
+    print NR,&quot;Records Processed&quot;;
+}
+</code></pre><pre><code>$awk -f etc_passwd.awk /etc/passwd
+Name    UserID  GroupID        HomeDirectory
+gnats    41    41    /var/lib/gnats
+libuuid    100    101    /var/lib/libuuid
+syslog    101    102    /home/syslog
+hplip    103    7    /var/run/hplip
+avahi    105    111    /var/run/avahi-daemon
+saned    110    116    /home/saned
+pulse    111    117    /var/run/pulse
+gdm    112    119    /var/lib/gdm
+8 Records Processed
+</code></pre><h3 id="of&#x4F8B;&#x5B50;&#xFF1A;&#x8F93;&#x51FA;&#x57DF;&#x5206;&#x9694;&#x7B26;"><code>OF</code>&#x4F8B;&#x5B50;&#xFF1A;&#x8F93;&#x51FA;&#x57DF;&#x5206;&#x9694;&#x7B26;</h3>
+<p><code>OFS</code>&#x662F;&#x4E00;&#x4E2A;&#x8F93;&#x51FA;&#x57DF;&#x5206;&#x5272;&#x7B26;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;&#x4E00;&#x4E2A;&#x7A7A;&#x683C;&#x7B26;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code>$ awk -F&apos;:&apos; &apos;{print $3,$4;}&apos; /etc/passwd
+41 41
+100 101
+101 102
+103 7
+105 111
+110 116
+111 117
+112 119
+</code></pre><p><code>print</code>&#x8BED;&#x53E5;&#x4E2D;&#x7684;<code>&apos;,&apos;</code>&#x7528;<code>OFS</code>&#x9ED8;&#x8BA4;&#x7684;&#x7A7A;&#x683C;&#x7B26;&#x8FDE;&#x63A5;&#x4E86;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x3002;&#x56E0;&#x6B64;<code>OFS</code>&#x5C06;&#x4F1A;&#x88AB;&#x63D2;&#x5165;&#x5230;&#x8F93;&#x51FA;&#x4E2D;&#x7684;&#x4E24;&#x4E2A;&#x57DF;&#x4E4B;&#x95F4;&#xFF0C;&#x770B;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code>$ awk -F&apos;:&apos; &apos;BEGIN{OFS=&quot;=&quot;;} {print $3,$4;}&apos; /etc/passwd
+41=41
+100=101
+101=102
+103=7
+105=111
+110=116
+111=117
+112=119
+</code></pre><h3 id="rs&#x4F8B;&#x5B50;&#xFF1A;&#x8BB0;&#x5F55;&#x5206;&#x5272;&#x7B26;"><code>RS</code>&#x4F8B;&#x5B50;&#xFF1A;&#x8BB0;&#x5F55;&#x5206;&#x5272;&#x7B26;</h3>
+<p><code>RS</code>&#x5B9A;&#x4E49;&#x4E00;&#x884C;&#xFF0C;Awk&#x9ED8;&#x8BA4;&#x4E00;&#x884C;&#x4E00;&#x884C;&#x5730;&#x8BFB;&#x53D6;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x6309;&#x5982;&#x4E0B;&#x683C;&#x5F0F;&#x50A8;&#x5B58;<code>student.txt</code>&#xFF0C;&#x6BCF;&#x6761;&#x8BB0;&#x5F55;&#x4EE5;&#x53CC;&#x6362;&#x884C;&#x7B26;&#x5206;&#x5272;&#xFF0C;&#x6BCF;&#x4E2A;&#x57DF;&#x4EE5;&#x6362;&#x884C;&#x7B26;&#x5206;&#x5272;&#xFF1A;</p>
+<pre><code>$cat student.txt
+Jones
+2143
+78
+84
+77
+
+Gondrol
+2321
+56
+58
+45
+
+RinRao
+2122
+38
+37
+65
+
+Edwin
+2537
+78
+67
+45
+
+Dayan
+2415
+30
+47
+20
+</code></pre><p>&#x4E0B;&#x9762;&#x7684;Awk&#x811A;&#x672C;&#x6253;&#x5370;&#x51FA;&#x5B66;&#x751F;&#x7684;&#x540D;&#x5B57;&#x548C;&#x5B66;&#x53F7;&#xFF1A;</p>
+<pre><code>$cat student.awk
+BEGIN {
+    RS=&quot;\n\n&quot;;
+    FS=&quot;\n&quot;;
+
+}
+{
+    print $1,$2;
+}
+
+$ awk -f student.awk  student.txt
+Jones 2143
+Gondrol 2321
+RinRao 2122
+Edwin 2537
+Dayan 2415
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x811A;&#x672C;&#x4E2D;&#xFF0C;&#x8BFB;&#x53D6;&#x6BCF;&#x4E2A;&#x5B66;&#x751F;&#x7684;&#x4FE1;&#x606F;&#x4F5C;&#x4E3A;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#xFF0C;&#x56E0;&#x4E3A;Awk&#x7684;<code>RS</code>&#x5DF2;&#x7ECF;&#x88AB;&#x5B9A;&#x4E49;&#x4E3A;&#x4E86;&#x53CC;&#x6362;&#x884C;&#x7B26;&#xFF0C;&#x5E76;&#x4E14;&#x6BCF;&#x884C;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x8BB0;&#x5F55;&#xFF0C;&#x56E0;&#x4E3A;<code>FS</code>&#x662F;&#x4E00;&#x4E2A;&#x6362;&#x884C;&#x7B26;&#x3002;</p>
+<h3 id="ofs&#x4F8B;&#x5B50;&#xFF1A;&#x8F93;&#x51FA;&#x8BB0;&#x5F55;&#x5206;&#x5272;&#x7B26;"><code>OFS</code>&#x4F8B;&#x5B50;&#xFF1A;&#x8F93;&#x51FA;&#x8BB0;&#x5F55;&#x5206;&#x5272;&#x7B26;</h3>
+<p><code>OFS</code>&#x662F;&#x8F93;&#x51FA;&#x8BB0;&#x5F55;&#x5206;&#x5272;&#x7B26;&#xFF0C;&#x8F93;&#x51FA;&#x4E2D;&#x7684;&#x6BCF;&#x6761;&#x8BB0;&#x5F55;&#x5C06;&#x4EE5;<code>OFS</code>&#x4F5C;&#x4E3A;&#x5B9A;&#x754C;&#x7B26;&#x6253;&#x5370;&#xFF0C;&#x4E0B;&#x9762;&#x662F;<code>OFS</code>&#x7684;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code>$  awk &apos;BEGIN{ORS=&quot;=&quot;;} {print;}&apos; student-marks
+Jones 2143 78 84 77=Gondrol 2321 56 58 45=RinRao 2122 38 37 65=Edwin 2537 78 67 45=Dayan 2415 30 47 20=
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;<code>student-marks</code>&#x4E2D;&#x7684;&#x6BCF;&#x884C;&#x90FD;&#x4EE5;<code>&apos;=&apos;</code>&#x4F5C;&#x4E3A;&#x5B9A;&#x754C;&#x7B26;&#x3002;</p>
+<h3 id="nr&#x4F8B;&#x5B50;&#xFF1A;&#x8BB0;&#x5F55;&#x6570;&#x91CF;&#x53D8;&#x91CF;"><code>NR</code>&#x4F8B;&#x5B50;&#xFF1A;&#x8BB0;&#x5F55;&#x6570;&#x91CF;&#x53D8;&#x91CF;</h3>
+<p><code>NR</code>&#x8FD4;&#x56DE;&#x8BB0;&#x5F55;&#x603B;&#x6570;&#x6216;&#x8005;&#x5DF2;&#x7ECF;&#x5904;&#x7406;&#x7684;&#x884C;&#x6570;&#xFF0C;&#x5728;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;<code>NR</code>&#x50A8;&#x5B58;&#x884C;&#x6570;&#xFF0C;&#x5728;<code>END</code>&#x5757;&#x4E2D;&#x5C06;&#x8FD4;&#x56DE;&#x6587;&#x4EF6;&#x7684;&#x8BB0;&#x5F55;&#x603B;&#x6570;&#x3002;</p>
+<pre><code>$ awk &apos;{print &quot;Processing Record - &quot;,NR;}END {print NR, &quot;Students Records are processed&quot;;}&apos; student-marks
+Processing Record -  1
+Processing Record -  2
+Processing Record -  3
+Processing Record -  4
+Processing Record -  5
+5 Students Records are processed
+</code></pre><h3 id="nf&#x4F8B;&#x5B50;&#xFF1A;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#x4E2D;&#x57DF;&#x7684;&#x6570;&#x91CF;"><code>NF</code>&#x4F8B;&#x5B50;&#xFF1A;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#x4E2D;&#x57DF;&#x7684;&#x6570;&#x91CF;</h3>
+<p><code>NF</code>&#x8FD4;&#x56DE;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#x4E2D;&#x57DF;&#x7684;&#x603B;&#x6570;&#xFF0C;<code>NF</code>&#x53D8;&#x91CF;&#x5728;&#x9A8C;&#x8BC1;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#x4E2D;&#x662F;&#x5426;&#x6240;&#x6709;&#x7684;&#x57DF;&#x90FD;&#x5B58;&#x5728;&#x65F6;&#x975E;&#x5E38;&#x6709;&#x7528;&#x3002;</p>
+<p>&#x770B;&#x4E00;&#x4E0B;<code>student-marks</code>&#xFF0C;&#x6709;&#x7684;&#x5B66;&#x751F;&#x7684;Test3&#x5206;&#x6570;&#x4E0D;&#x5B58;&#x5728;&#xFF1A;</p>
+<pre><code>$cat student-marks
+Jones 2143 78 84 77
+Gondrol 2321 56 58 45
+RinRao 2122 38 37
+Edwin 2537 78 67 45
+Dayan 2415 30 47
+</code></pre><p>&#x4E0B;&#x9762;&#x7684;&#x811A;&#x672C;&#x5C06;&#x4F1A;&#x6253;&#x5370;&#x8BB0;&#x5F55;&#x53F7;(&#x4E5F;&#x5C31;&#x662F;&#x884C;&#x53F7;&#x5566;)&#x4EE5;&#x53CA;&#x90A3;&#x6761;&#x8BB0;&#x5F55;&#x4E2D;&#x57DF;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x5F88;&#x5BB9;&#x6613;&#x627E;&#x51FA;&#x7F3A;&#x5931;Test3&#x5206;&#x6570;&#x7684;&#x8BB0;&#x5F55;&#xFF1A;</p>
+<pre><code>$ awk &apos;{print NR,&quot;-&gt;&quot;,NF}&apos; student-marks
+1 -&gt; 5
+2 -&gt; 5
+3 -&gt; 4
+4 -&gt; 5
+5 -&gt; 4
+</code></pre><h3 id="filename&#x4F8B;&#x5B50;&#xFF1A;&#x5F53;&#x524D;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x540D;"><code>FILENAME</code>&#x4F8B;&#x5B50;&#xFF1A;&#x5F53;&#x524D;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x540D;</h3>
+<p><code>FILENAME</code>&#x8FD4;&#x56DE;&#x6B63;&#x5728;&#x8BFB;&#x53D6;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF0C;Awk&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;</p>
+<pre><code>$ awk &apos;{print FILENAME}&apos; student-marks
+student-marks
+student-marks
+student-marks
+student-marks
+student-marks
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x5BF9;&#x4E8E;<code>student-marks</code>&#x7684;&#x6BCF;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#x90FD;&#x4F1A;&#x6253;&#x5370;&#x6587;&#x4EF6;&#x540D;&#x3002;</p>
+<h3 id="fnr&#x4F8B;&#x5B50;&#xFF1A;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x7684;&#x8BB0;&#x5F55;&#x6570;"><code>FNR</code>&#x4F8B;&#x5B50;&#xFF1A;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x7684;&#x8BB0;&#x5F55;&#x6570;</h3>
+<p>&#x5F53;&#x8BFB;&#x53D6;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;<code>NR</code>&#x4F1A;&#x8FD4;&#x56DE;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x8BB0;&#x5F55;&#x603B;&#x6570;&#xFF0C;<code>FNR</code>&#x53EA;&#x4F1A;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x7684;&#x8BB0;&#x5F55;&#x6570;&#x3002;</p>
+<pre><code>$ awk &apos;{print FILENAME, FNR;}&apos; student-marks bookdetails
+student-marks 1
+student-marks 2
+student-marks 3
+student-marks 4
+student-marks 5
+bookdetails 1
+bookdetails 2
+bookdetails 3
+bookdetails 4
+bookdetails 5
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x811A;&#x672C;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x7684;&#x4E0D;&#x662F;<code>FNR</code>&#xFF0C;&#x800C;&#x662F;<code>NR</code>&#x7684;&#x8BDD;&#xFF0C;&#x5BF9;&#x4E8E;<code>bookdetails</code>&#x7684;&#x6BCF;&#x884C;&#x5C06;&#x4F1A;&#x8FD4;&#x56DE;6&#x5230;10&#x3002;</p>
+<p>&#x6CE8;&#xFF1A;&#x7FFB;&#x8BD1;&#x81EA;<a href="http://www.thegeekstuff.com/2010/01/8-powerful-awk-built-in-variables-fs-ofs-rs-ors-nr-nf-filename-fnr/" target="_blank">&#x539F;&#x6587;&#x94FE;&#x63A5;</a></p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./awk_variables.html" class="navigation navigation-prev " aria-label="Previous page: Awk变量"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./awk_if.html" class="navigation navigation-next " aria-label="Next page: Awk if语句"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

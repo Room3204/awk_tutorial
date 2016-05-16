@@ -1,0 +1,418 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Awk打印 | Awk Tutorial</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        <meta name="author" content="Qiansen">
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./awk_variables.html" />
+    
+    
+    <link rel="prev" href="./index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="1"
+        data-chapter-title="Awk打印"
+        data-filepath="awk_print.md"
+        data-basepath="."
+        data-revision="Mon May 16 2016 14:07:24 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="1" data-path="awk_print.html">
+            
+                
+                    <a href="./awk_print.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Awk打印
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="awk_variables.html">
+            
+                
+                    <a href="./awk_variables.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Awk变量
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="awk_buildin.html">
+            
+                
+                    <a href="./awk_buildin.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Awk内置变量
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="awk_if.html">
+            
+                
+                    <a href="./awk_if.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Awk if语句
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="awk_loop.html">
+            
+                
+                    <a href="./awk_loop.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Awk循环
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="awk_array.html">
+            
+                
+                    <a href="./awk_array.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Awk数组
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="awk_operator.html">
+            
+                
+                    <a href="./awk_operator.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Awk运算符
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="awk_numeric_fun.html">
+            
+                
+                    <a href="./awk_numeric_fun.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        Awk数学函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="awk_sudoku.html">
+            
+                
+                    <a href="./awk_sudoku.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        Awk解决数独问题
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >Awk Tutorial</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="7&#x4E2A;awk&#x6253;&#x5370;&#x7684;&#x4F8B;&#x5B50;">7&#x4E2A;Awk&#x6253;&#x5370;&#x7684;&#x4F8B;&#x5B50;</h1>
+<p>&#x5728;&#x8FD9;&#x7247;&#x6587;&#x7AE0;&#x4E2D;&#xFF0C;&#x5C06;&#x7528;7&#x4E2A;&#x6253;&#x5370;&#x7684;&#x4F8B;&#x5B50;&#x6765;&#x770B;&#x4E00;&#x4E0B;Awk&#x57FA;&#x672C;&#x7684;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#x3002;</p>
+<p>Awk&#x662F;&#x4E00;&#x79CD;&#x5904;&#x7406;&#x7ED3;&#x6784;&#x5316;&#x6570;&#x636E;&#x548C;&#x4EA7;&#x751F;&#x683C;&#x5F0F;&#x5316;&#x62A5;&#x544A;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#xFF0C;Awk&#x4EE3;&#x8868;&#x7684;&#x662F;&#x5B83;&#x7684;&#x4F5C;&#x8005;&#x2014;&#x2014;<strong>A</strong>ho&#x3001;<strong>W</strong>einberger&#x548C;<strong>K</strong>ernighan&#x3002;</p>
+<h3 id="awk&#x7684;&#x4E00;&#x4E9B;&#x5173;&#x952E;&#x7279;&#x70B9;&#xFF1A;">Awk&#x7684;&#x4E00;&#x4E9B;&#x5173;&#x952E;&#x7279;&#x70B9;&#xFF1A;</h3>
+<ol>
+<li>Awk&#x628A;&#x6587;&#x4EF6;&#x770B;&#x4F5C;&#x8BB0;&#x5F55;&#x548C;&#x57DF;</li>
+<li>&#x548C;&#x901A;&#x5E38;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x4E00;&#x6837;&#xFF0C;Awk&#x4E5F;&#x6709;&#x53D8;&#x91CF;&#x3001;&#x6761;&#x4EF6;&#x548C;&#x5FAA;&#x73AF;</li>
+<li>Awk&#x62E5;&#x6709;&#x7B97;&#x6570;&#x8FD0;&#x7B97;&#x7B26;&#x548C;&#x5B57;&#x7B26;&#x4E32;&#x8FD0;&#x7B97;&#x7B26;</li>
+<li>Awk&#x53EF;&#x4EE5;&#x4EA7;&#x751F;&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;</li>
+</ol>
+<p>Awk&#x4ECE;&#x6587;&#x4EF6;&#x6216;&#x6807;&#x51C6;&#x8F93;&#x5165;&#x8BFB;&#x53D6;&#xFF0C;&#x8F93;&#x51FA;&#x5230;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x3002;Awk&#x4E0D;&#x4F1A;&#x5904;&#x7406;&#x7A7A;&#x767D;&#x6587;&#x4EF6;&#x3002;</p>
+<pre><code>&#x8BED;&#x6CD5;&#xFF1A;
+awk &apos;/search pattern1/ {actions}
+    /search pattern2/ {actions}&apos; file
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;Awk&#x8BED;&#x6CD5;&#x4E2D;&#xFF1A;</p>
+<ol>
+<li><code>search pattern</code>&#x662F;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</li>
+<li><code>actions</code>&#x8BED;&#x53E5;&#x5C06;&#x4F1A;&#x88AB;&#x6267;&#x884C;</li>
+<li>Awk&#x4E2D;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;<code>search pattern</code>&#x548C;<code>actions</code></li>
+<li><code>file</code>&#x662F;&#x8F93;&#x5165;&#x6587;&#x4EF6;</li>
+<li>&#x5C06;&#x7A0B;&#x5E8F;&#x653E;&#x5728;&#x5355;&#x5F15;&#x53F7;&#x4E2D;&#x662F;&#x4E3A;&#x4E86;&#x907F;&#x514D;shell&#x7684;&#x5F71;&#x54CD;</li>
+</ol>
+<h3 id="awk&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;">Awk&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;</h3>
+<ol>
+<li>Awk&#x4E00;&#x6B21;&#x8BFB;&#x53D6;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x4E00;&#x884C;</li>
+<li>&#x5BF9;&#x4E8E;&#x6BCF;&#x4E00;&#x884C;&#xFF0C;&#x4ED6;&#x4F1A;&#x6309;&#x6240;&#x7ED9;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x987A;&#x5E8F;&#x8FDB;&#x884C;&#x5339;&#x914D;&#xFF0C;&#x5982;&#x679C;&#x5339;&#x914D;&#x6210;&#x529F;&#xFF0C;&#x5C31;&#x4F1A;&#x6267;&#x884C;&#x5BF9;&#x5E94;&#x7684;&#x64CD;&#x4F5C;</li>
+<li>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6B63;&#x5219;&#x8868;&#x793A;&#x5F0F;&#x5339;&#x914D;&#x6210;&#x529F;&#xFF0C;&#x5C31;&#x4E0D;&#x4F1A;&#x6709;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#x6267;&#x884C;</li>
+<li>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x8BED;&#x6CD5;&#x4E2D;&#xFF0C;<code>search pattern</code>&#x548C;<code>actions</code>&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;&#x4F46;&#x4E8C;&#x8005;&#x5FC5;&#x987B;&#x8981;&#x6709;&#x5176;&#x4E00;</li>
+<li>&#x5982;&#x679C;&#x6CA1;&#x6709;<code>search pattern</code>&#xFF0C;Awk&#x5C31;&#x4F1A;&#x5BF9;&#x6BCF;&#x4E00;&#x884C;&#x6267;&#x884C;<code>actions</code>&#x64CD;&#x4F5C;</li>
+<li>&#x5982;&#x679C;&#x6CA1;&#x6709;<code>actions</code>&#xFF0C;Awk&#x4F1A;&#x9ED8;&#x8BA4;&#x6253;&#x5370;&#x51FA;<code>search pattern</code>&#x5339;&#x914D;&#x6210;&#x529F;&#x7684;&#x6240;&#x6709;&#x884C;</li>
+<li>&#x5982;&#x679C;&#x662F;&#x7A7A;&#x767D;&#x7684;&#x5927;&#x62EC;&#x53F7;&#xFF0C;Awk&#x4E0D;&#x4F1A;&#x6267;&#x884C;&#x9ED8;&#x8BA4;&#x7684;&#x6253;&#x5370;&#x64CD;&#x4F5C;</li>
+<li>&#x5927;&#x62EC;&#x53F7;&#x4E2D;&#x6BCF;&#x4E00;&#x6761;<code>actions</code>&#x8BED;&#x53E5;&#x4E4B;&#x95F4;&#x5E94;&#x8BE5;&#x7528;&#x5206;&#x53F7;&#x9694;&#x5F00;</li>
+</ol>
+<p>&#x540E;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x5C06;&#x4EE5;&#x4E0B;&#x9762;&#x7684;<code>employee.txt</code>&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code>$cat employee.txt
+100  Thomas  Manager    Sales       $5,000
+200  Jason   Developer  Technology  $5,500
+300  Sanjay  Sysadmin   Technology  $7,000
+400  Nisha   Manager    Marketing   $9,500
+500  Randy   DBA        Technology  $6,000
+</code></pre><h3 id="&#x4F8B;1-awk&#x7684;&#x9ED8;&#x8BA4;&#x64CD;&#x4F5C;">&#x4F8B;1 Awk&#x7684;&#x9ED8;&#x8BA4;&#x64CD;&#x4F5C;</h3>
+<p>Awk&#x9ED8;&#x8BA4;&#x4F1A;&#x6253;&#x5370;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x884C;</p>
+<pre><code>$ awk &apos;{print;}&apos; employee.txt
+100  Thomas  Manager    Sales       $5,000
+200  Jason   Developer  Technology  $5,500
+300  Sanjay  Sysadmin   Technology  $7,000
+400  Nisha   Manager    Marketing   $9,500
+500  Randy   DBA        Technology  $6,000
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6CA1;&#x6709;<code>search pattern</code>&#xFF0C;&#x56E0;&#x6B64;Awk&#x4F1A;&#x5BF9;&#x6240;&#x6709;&#x884C;&#x8FDB;&#x884C;<code>actions</code>&#x64CD;&#x4F5C;&#xFF0C;&#x8FD9;&#x91CC;Awk&#x4F1A;&#x9ED8;&#x8BA4;&#x5730;&#x539F;&#x5C01;&#x4E0D;&#x52A8;&#x5730;&#x6253;&#x5370;&#x51FA;&#x6574;&#x884C;&#xFF0C;&#x56E0;&#x6B64;&#x6253;&#x5370;&#x51FA;&#x4E86;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x884C;&#xFF0C;<code>actions</code>&#x5FC5;&#x987B;&#x88AB;&#x5305;&#x542B;&#x5728;&#x5927;&#x62EC;&#x53F7;&#x4E2D;&#x3002;</p>
+<h3 id="&#x4F8B;2-&#x6253;&#x5370;&#x5339;&#x914D;&#x6210;&#x529F;&#x7684;&#x884C;">&#x4F8B;2 &#x6253;&#x5370;&#x5339;&#x914D;&#x6210;&#x529F;&#x7684;&#x884C;</h3>
+<pre><code>$ awk &apos;/Thomas/
+&gt; /Nisha/&apos; employee.txt
+100  Thomas  Manager    Sales       $5,000
+400  Nisha   Manager    Marketing   $9,500
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;Awk&#x6253;&#x5370;&#x51FA;&#x6765;&#x4E86;&#x6240;&#x6709;&#x5339;&#x914D;&#x5230;<code>Thomas</code>&#x548C;<code>Nisha</code>&#x7684;&#x884C;&#x3002;&#x8FD9;&#x91CC;&#x6709;&#x4E24;&#x4E2A;<code>pattern</code>&#xFF0C;Awk&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x4EFB;&#x610F;&#x6570;&#x91CF;&#x7684;<code>pattern</code>&#xFF0C;&#x4F46;&#x662F;&#x6BCF;&#x4E2A;<code>pattern</code>&#x548C;&#x5BF9;&#x5E94;&#x7684;<code>actions</code>&#x5FC5;&#x987B;&#x7528;&#x6362;&#x884C;&#x7B26;&#x9694;&#x5F00;&#x3002;</p>
+<h3 id="&#x4F8B;3-&#x6253;&#x5370;&#x7279;&#x5B9A;&#x7684;&#x57DF;">&#x4F8B;3 &#x6253;&#x5370;&#x7279;&#x5B9A;&#x7684;&#x57DF;</h3>
+<p>Awk&#x6709;&#x5927;&#x91CF;&#x7684;&#x5185;&#x7F6E;&#x53D8;&#x91CF;&#xFF0C;&#x5BF9;&#x4E8E;&#x6BCF;&#x6761;&#x8BB0;&#x5F55;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x6BCF;&#x4E00;&#x884C;&#xFF0C;&#x5B83;&#x4F1A;&#x9ED8;&#x8BA4;&#x4EE5;&#x7A7A;&#x683C;&#x7B26;&#x5206;&#x5272;&#x5E76;&#x4FDD;&#x5B58;&#x5230;<code>$n</code>&#x53D8;&#x91CF;&#x4E2D;&#x3002;&#x5047;&#x5982;&#x4E00;&#x884C;&#x6709;4&#x4E2A;&#x5355;&#x8BCD;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x88AB;&#x4FDD;&#x5B58;&#x5230;<code>$1</code>&#x3001;<code>$2</code>&#x3001;<code>$3</code>&#x548C;<code>$4</code>&#x4E2D;&#xFF0C;<code>$0</code>&#x4EE3;&#x8868;&#x6574;&#x884C;&#xFF0C;<code>NF</code>&#x662F;&#x4E00;&#x4E2A;&#x4EE3;&#x8868;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#x4E2D;&#x57DF;&#x7684;&#x603B;&#x6570;&#x7684;&#x5185;&#x7F6E;&#x53D8;&#x91CF;&#x3002;</p>
+<pre><code>$ awk &apos;{print $2,$5;}&apos; employee.txt
+Thomas $5,000
+Jason $5,500
+Sanjay $7,000
+Nisha $9,500
+Randy $6,000
+
+$ awk &apos;{print $2,$NF;}&apos; employee.txt
+Thomas $5,000
+Jason $5,500
+Sanjay $7,000
+Nisha $9,500
+Randy $6,000
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;<code>$2</code>&#x548C;<code>$5</code>&#x5206;&#x522B;&#x8868;&#x793A;&#x540D;&#x5B57;&#x548C;&#x85AA;&#x6C34;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;<code>$NF</code>&#x83B7;&#x5F97;&#x85AA;&#x6C34;&#xFF0C;&#x56E0;&#x4E3A;<code>$NF</code>&#x8868;&#x793A;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x57DF;&#xFF0C;&#x5728;&#x6253;&#x5370;&#x8BED;&#x53E5;&#x4E2D;&#xFF0C;&#x9017;&#x53F7;&#x662F;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#x7B26;&#x3002;</p>
+<h3 id="&#x4F8B;4-&#x521D;&#x59CB;&#x5316;&#x548C;&#x6700;&#x540E;&#x7684;&#x64CD;&#x4F5C;">&#x4F8B;4 &#x521D;&#x59CB;&#x5316;&#x548C;&#x6700;&#x540E;&#x7684;&#x64CD;&#x4F5C;</h3>
+<p>Awk&#x6709;&#x4E24;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x6A21;&#x5F0F;&#x2014;&#x2014;<code>BEGIN</code>&#x548C;<code>END</code></p>
+<pre><code>&#x8BED;&#x6CD5;&#xFF1A;
+BEGIN { Actions}
+{ACTION} # Action for everyline in a file
+END { Actions }
+
+# is for comments in Awk
+</code></pre><p>&#x5728;<code>BEGIN</code>&#x5757;&#x4E2D;&#x7684;<code>actions</code>&#x5C06;&#x4F1A;&#x5728;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x4E4B;&#x524D;&#x6267;&#x884C;&#xFF1B;<code>END</code>&#x5757;&#x4F1A;&#x5728;&#x5B8C;&#x6210;&#x5BF9;&#x6240;&#x6709;&#x884C;&#x7684;&#x8BFB;&#x53D6;&#x548C;&#x5904;&#x7406;&#x540E;&#x6267;&#x884C;&#x3002;</p>
+<pre><code>$ awk &apos;BEGIN {print &quot;Name\tDesignation\tDepartment\tSalary&quot;;}
+&gt; {print $2,&quot;\t&quot;,$3,&quot;\t&quot;,$4,&quot;\t&quot;,$NF;}
+&gt; END{print &quot;Report Generated\n--------------&quot;;
+&gt; }&apos; employee.txt
+Name    Designation    Department    Salary
+Thomas      Manager      Sales              $5,000
+Jason      Developer      Technology      $5,500
+Sanjay      Sysadmin      Technology      $7,000
+Nisha      Manager      Marketing      $9,500
+Randy      DBA           Technology      $6,000
+Report Generated
+--------------
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x5B83;&#x4F1A;&#x6253;&#x5370;&#x6807;&#x9898;&#x548C;&#x7ED3;&#x5C3E;</p>
+<h3 id="&#x4F8B;5-&#x627E;&#x51FA;id&#x5927;&#x4E8E;200&#x7684;&#x5458;&#x5DE5;&#x4FE1;&#x606F;">&#x4F8B;5 &#x627E;&#x51FA;<code>ID</code>&#x5927;&#x4E8E;200&#x7684;&#x5458;&#x5DE5;&#x4FE1;&#x606F;</h3>
+<pre><code>$ awk &apos;$1 &gt;200&apos; employee.txt
+300  Sanjay  Sysadmin   Technology  $7,000
+400  Nisha   Manager    Marketing   $9,500
+500  Randy   DBA        Technology  $6,000
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x57DF;<code>($1)</code>&#x662F;&#x5458;&#x5DE5;<code>ID</code>&#xFF0C;&#x5982;&#x679C;<code>$1</code>&#x5927;&#x4E8E;200&#xFF0C;&#x5C31;&#x4F1A;&#x9ED8;&#x8BA4;&#x6253;&#x5370;&#x51FA;&#x6574;&#x884C;&#x3002;</p>
+<h3 id="&#x4F8B;6-&#x6253;&#x5370;&#x51FA;&#x5728;&#x6280;&#x672F;&#x90E8;&#x95E8;&#x5DE5;&#x4F5C;&#x7684;&#x5458;&#x5DE5;&#x4FE1;&#x606F;">&#x4F8B;6 &#x6253;&#x5370;&#x51FA;&#x5728;&#x6280;&#x672F;&#x90E8;&#x95E8;&#x5DE5;&#x4F5C;&#x7684;&#x5458;&#x5DE5;&#x4FE1;&#x606F;</h3>
+<p>&#x90E8;&#x95E8;&#x540D;&#x5B57;&#x662F;&#x7B2C;&#x56DB;&#x4E2A;&#x57DF;(<code>$4</code>)&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x68C0;&#x67E5;<code>$4</code>&#x662F;&#x5426;&#x5339;&#x914D;&#x5B57;&#x7B26;&#x4E32;<code>&quot;Technology&quot;</code>&#xFF0C;&#x5982;&#x679C;&#x5339;&#x914D;&#x5C31;&#x6253;&#x5370;&#x51FA;&#x8FD9;&#x884C;&#x3002;</p>
+<pre><code>$ awk &apos;$4 ~/Technology/&apos; employee.txt
+200  Jason   Developer  Technology  $5,500
+300  Sanjay  Sysadmin   Technology  $7,000
+500  Randy   DBA        Technology  $6,000
+</code></pre><p>&#x8FD0;&#x7B97;&#x7B26;<code>~</code>&#x8868;&#x793A;&#x548C;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#xFF0C;&#x5982;&#x679C;&#x5339;&#x914D;&#x5C31;&#x4F1A;&#x6267;&#x884C;&#x9ED8;&#x8BA4;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x6253;&#x5370;&#x51FA;&#x6574;&#x884C;&#x3002;</p>
+<h3 id="&#x4F8B;7-&#x6253;&#x5370;&#x51FA;&#x5728;&#x6280;&#x672F;&#x90E8;&#x95E8;&#x5DE5;&#x4F5C;&#x7684;&#x5458;&#x5DE5;&#x4EBA;&#x6570;">&#x4F8B;7 &#x6253;&#x5370;&#x51FA;&#x5728;&#x6280;&#x672F;&#x90E8;&#x95E8;&#x5DE5;&#x4F5C;&#x7684;&#x5458;&#x5DE5;&#x4EBA;&#x6570;</h3>
+<p>&#x5728;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x68C0;&#x67E5;&#x90E8;&#x95E8;&#x662F;&#x5426;&#x662F;&#x6280;&#x672F;&#x90E8;&#x95E8;&#xFF0C;&#x5982;&#x679C;&#x662F;&#xFF0C;&#x5728;<code>BEGIN</code>&#x5757;&#x521D;&#x59CB;&#x5316;&#x4E3A;0&#x7684;<code>count</code>&#x53D8;&#x91CF;&#x5C31;&#x4F1A;&#x81EA;&#x52A0;&#x4E00;</p>
+<pre><code>$ awk &apos;BEGIN { count=0;}
+$4 ~ /Technology/ { count++; }
+END { print &quot;Number of employees in Technology Dept =&quot;,count;}&apos; employee.txt
+Number of employees in Tehcnology Dept = 3
+</code></pre><p>&#x6700;&#x540E;&#x6253;&#x5370;&#x51FA;&#x8BB0;&#x5F55;&#x7740;&#x5728;&#x6280;&#x672F;&#x90E8;&#x95E8;&#x5DE5;&#x4F5C;&#x7684;&#x5458;&#x5DE5;&#x4EBA;&#x6570;&#x7684;<code>count</code>&#x53D8;&#x91CF;&#x7684;&#x503C;&#x3002;</p>
+<p>&#x6CE8;&#xFF1A;&#x6587;&#x7AE0;&#x7FFB;&#x8BD1;&#x81EA;<a href="http://www.thegeekstuff.com/2010/01/awk-introduction-tutorial-7-awk-print-examples/" target="_blank">&#x539F;&#x6587;&#x94FE;&#x63A5;</a></p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./index.html" class="navigation navigation-prev " aria-label="Previous page: Introduction"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./awk_variables.html" class="navigation navigation-next " aria-label="Next page: Awk变量"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

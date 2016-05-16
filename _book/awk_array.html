@@ -1,0 +1,456 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Awk数组 | Awk Tutorial</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        <meta name="author" content="Qiansen">
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./awk_operator.html" />
+    
+    
+    <link rel="prev" href="./awk_loop.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="6"
+        data-chapter-title="Awk数组"
+        data-filepath="awk_array.md"
+        data-basepath="."
+        data-revision="Mon May 16 2016 14:07:24 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="awk_print.html">
+            
+                
+                    <a href="./awk_print.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Awk打印
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="awk_variables.html">
+            
+                
+                    <a href="./awk_variables.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Awk变量
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="awk_buildin.html">
+            
+                
+                    <a href="./awk_buildin.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Awk内置变量
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="awk_if.html">
+            
+                
+                    <a href="./awk_if.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Awk if语句
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="awk_loop.html">
+            
+                
+                    <a href="./awk_loop.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Awk循环
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="6" data-path="awk_array.html">
+            
+                
+                    <a href="./awk_array.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Awk数组
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="awk_operator.html">
+            
+                
+                    <a href="./awk_operator.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Awk运算符
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="awk_numeric_fun.html">
+            
+                
+                    <a href="./awk_numeric_fun.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        Awk数学函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="awk_sudoku.html">
+            
+                
+                    <a href="./awk_sudoku.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        Awk解决数独问题
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >Awk Tutorial</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="5&#x4E2A;&#x4F8B;&#x5B50;&#x8BB2;&#x89E3;awk&#x6570;&#x7EC4;">5&#x4E2A;&#x4F8B;&#x5B50;&#x8BB2;&#x89E3;Awk&#x6570;&#x7EC4;</h1>
+<p>&#x2002;&#x2002;&#x2002;&#x2002;Awk&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x652F;&#x6301;&#x6570;&#x7EC4;&#x3002;&#x6570;&#x7EC4;&#x662F;&#x53D8;&#x91CF;&#x7684;&#x4E00;&#x79CD;&#x6269;&#x5C55;&#xFF0C;&#x6570;&#x7EC4;&#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x591A;&#x4E2A;&#x503C;&#xFF0C;&#x548C;&#x53D8;&#x91CF;&#x4E00;&#x6837;&#xFF0C;&#x6570;&#x7EC4;&#x4E5F;&#x6709;&#x540D;&#x5B57;&#xFF0C;&#x5728;&#x4E00;&#x4E9B;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;&#x6570;&#x7EC4;&#x5FC5;&#x987B;&#x5148;&#x58F0;&#x660E;&#xFF0C;&#x8FD9;&#x6837;&#x5185;&#x5B58;&#x624D;&#x4F1A;&#x7ED9;&#x5B83;&#x5206;&#x914D;&#x7A7A;&#x95F4;&#xFF0C;&#x5E76;&#x4E14;&#x6570;&#x7EC4;&#x7684;&#x4E0B;&#x6807;&#x5FC5;&#x987B;&#x662F;&#x6574;&#x6570;&#xFF0C;&#x5C31;&#x50CF;array[1]&#x3001;array[2]&#x7B49;&#x7B49;&#x3002;</p>
+<h2 id="awk&#x5173;&#x8054;&#x6570;&#x7EC4;">Awk&#x5173;&#x8054;&#x6570;&#x7EC4;</h2>
+<p>&#x2002;&#x2002;&#x2002;&#x2002;Awk&#x53EA;&#x652F;&#x6301;&#x5173;&#x8054;&#x6570;&#x7EC4;&#xFF0C;&#x5173;&#x8054;&#x6570;&#x7EC4;&#x9664;&#x4E86;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x800C;&#x4E0D;&#x662F;&#x6570;&#x5B57;&#x4F5C;&#x4E3A;&#x4E0B;&#x6807;&#x5916;&#x548C;&#x4F20;&#x7EDF;&#x7684;&#x6570;&#x7EC4;&#x4E00;&#x6837;&#xFF0C;&#x5F53;&#x4F7F;&#x7528;&#x5173;&#x8054;&#x6570;&#x7EC4;&#x65F6;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x7528;&#x6570;&#x5B57;&#x5B57;&#x7B26;&#x4E32;&#x4F5C;&#x4E3A;&#x4E0B;&#x6807;&#x6765;&#x6A21;&#x4EFF;&#x4F20;&#x7EDF;&#x7684;&#x6570;&#x7EC4;&#x3002;</p>
+<h3 id="&#x8BED;&#x6CD5;&#xFF1A;">&#x8BED;&#x6CD5;&#xFF1A;</h3>
+<p><code>arrayname[string]=value</code></p>
+<p>&#x5728;&#x4E0A;&#x9762;&#x7684;Awk&#x8BED;&#x6CD5;&#x4E2D;&#xFF1A;</p>
+<ul>
+<li>arrayname&#x662F;&#x6570;&#x7EC4;&#x7684;&#x540D;&#x5B57;</li>
+<li>string&#x662F;&#x6570;&#x7EC4;&#x7684;&#x4E0B;&#x6807;</li>
+<li>alue&#x662F;&#x6570;&#x7EC4;&#x4E2D;&#x4EFB;&#x4F55;&#x5143;&#x7D20;&#x7684;&#x503C;</li>
+</ul>
+<h2 id="&#x8BBF;&#x95EE;&#x6570;&#x7EC4;&#x5143;&#x7D20;">&#x8BBF;&#x95EE;&#x6570;&#x7EC4;&#x5143;&#x7D20;</h2>
+<p>&#x2002;&#x2002;&#x2002;&#x2002;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8BBF;&#x95EE;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x503C;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5B83;&#x7684;&#x4E0B;&#x6807;&#x8BBF;&#x95EE;&#xFF0C;&#x5C31;&#x50CF;arrayname[index]&#xFF0C;&#x8FD9;&#x6837;&#x4F1A;&#x8FD4;&#x56DE;&#x7ED9;&#x4F60;&#x6570;&#x7EC4;&#x4E2D;&#x90A3;&#x4E2A;&#x4E0B;&#x6807;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x3002;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8BBF;&#x95EE;&#x6570;&#x7EC4;&#x4E2D;&#x6240;&#x6709;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5FAA;&#x73AF;&#x8BBF;&#x95EE;&#x6570;&#x7EC4;&#x7684;&#x6240;&#x6709;&#x7684;&#x4E0B;&#x6807;&#xFF0C;&#x5C31;&#x50CF;&#x4E0B;&#x9762;&#xFF1A;</p>
+<h3 id="&#x8BED;&#x6CD5;&#xFF1A;">&#x8BED;&#x6CD5;&#xFF1A;</h3>
+<pre><code>for (var in arrayname)
+actions
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;Awk&#x8BED;&#x6CD5;&#x4E2D;&#xFF1A;</p>
+<ul>
+<li>var&#x662F;&#x4EFB;&#x4F55;&#x53D8;&#x91CF;&#x7684;&#x540D;&#x5B57;</li>
+<li>in&#x662F;&#x4E00;&#x4E2A;&#x5173;&#x952E;&#x5B57;</li>
+<li>arrayname&#x662F;&#x6570;&#x7EC4;&#x7684;&#x540D;&#x5B57;</li>
+<li>actions&#x662F;&#x8981;&#x6267;&#x884C;&#x7684;&#x8BED;&#x53E5;&#x5217;&#x8868;&#x3002;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x6267;&#x884C;&#x591A;&#x6761;&#x8BED;&#x53E5;&#xFF0C;&#x5FC5;&#x987B;&#x653E;&#x5728;&#x5927;&#x62EC;&#x53F7;&#x4E2D;&#x3002;</li>
+</ul>
+<p>&#x8FD9;&#x4E2A;&#x5FAA;&#x73AF;&#x5BF9;&#x6BCF;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x6267;&#x884C;acctions&#x5217;&#x8868;&#x4E2D;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<h2 id="&#x5220;&#x9664;&#x6570;&#x7EC4;&#x5143;&#x7D20;">&#x5220;&#x9664;&#x6570;&#x7EC4;&#x5143;&#x7D20;</h2>
+<p>&#x2002;&#x2002;&#x2002;&#x2002;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x5220;&#x9664;&#x6570;&#x7EC4;&#x4E2D;&#x7279;&#x5B9A;&#x4E0B;&#x6807;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x4F7F;&#x7528;Awk&#x5220;&#x9664;&#x8BED;&#x53E5;&#x3002;&#x4E00;&#x65E6;&#x5220;&#x9664;&#x4E86;Awk&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5C31;&#x4E0D;&#x80FD;&#x518D;&#x6062;&#x590D;&#x3002;</p>
+<h3 id="&#x8BED;&#x6CD5;&#xFF1A;">&#x8BED;&#x6CD5;&#xFF1A;</h3>
+<p><code>delete arrayname[index]</code></p>
+<p>&#x2002;&#x2002;&#x2002;&#x2002;&#x4E0B;&#x9762;&#x7684;&#x5FAA;&#x73AF;&#x8BED;&#x53E5;&#x4ECE;&#x6570;&#x7EC4;&#x4E2D;&#x5220;&#x9664;&#x6240;&#x6709;&#x7684;&#x5143;&#x7D20;&#x3002;&#x6CA1;&#x6709;&#x80FD;&#x5220;&#x9664;&#x6570;&#x7EC4;&#x4E2D;&#x6240;&#x6709;&#x5143;&#x7D20;&#x7684;&#x5355;&#x6761;&#x8BED;&#x53E5;&#x3002;&#x4F60;&#x4E0D;&#x5F97;&#x4E0D;&#x901A;&#x8FC7;&#x5FAA;&#x73AF;&#x548C;&#x4F7F;&#x7528;Awk&#x7684;&#x5220;&#x9664;&#x8BED;&#x53E5;&#x5220;&#x9664;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x3002;</p>
+<h3 id="&#x8BED;&#x6CD5;&#xFF1A;">&#x8BED;&#x6CD5;&#xFF1A;</h3>
+<pre><code>for (var in arrayname)
+delete arrayname[var]
+</code></pre><h2 id="&#x5B9E;&#x9645;&#x7684;awk&#x6570;&#x7EC4;&#x4F8B;&#x5B50;">&#x5B9E;&#x9645;&#x7684;Awk&#x6570;&#x7EC4;&#x4F8B;&#x5B50;</h2>
+<p>&#x2002;&#x2002;&#x2002;&#x2002;&#x6240;&#x6709;&#x7684;&#x4F8B;&#x5B50;&#x90FD;&#x662F;&#x7528;&#x8FD9;&#x4E2A;Iplogs.txt&#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5305;&#x62EC;&#x4E86;&#x7F51;&#x5173;&#x670D;&#x52A1;&#x5668;&#x6240;&#x9700;&#x8981;&#x7684;ip&#x5730;&#x5740;&#x5217;&#x8868;&#xFF0C;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x7B26;&#x5408;&#x4E0B;&#x9762;&#x7684;&#x683C;&#x5F0F;&#xFF1A;</p>
+<p><code>[date] [time] [ip-address] [number-of-websites-accessed]</code></p>
+<pre><code>$ cat Iplogs.txt
+180607 093423    123.12.23.122 133
+180607 121234    125.25.45.221 153
+190607 084849   202.178.23.4 44
+190607 084859   164.78.22.64 12
+200607 012312    202.188.3.2 13
+210607 084849   202.178.23.4 34
+210607 121435    202.178.23.4 32
+210607 132423    202.188.3.2 167
+</code></pre><h3 id="&#x4F8B;1-&#x5217;&#x51FA;&#x6240;&#x6709;&#x7684;ip&#x5730;&#x5740;&#x548C;&#x5B83;&#x88AB;&#x8BF7;&#x6C42;&#x7684;&#x6B21;&#x6570;">&#x4F8B;1 &#x5217;&#x51FA;&#x6240;&#x6709;&#x7684;IP&#x5730;&#x5740;&#x548C;&#x5B83;&#x88AB;&#x8BF7;&#x6C42;&#x7684;&#x6B21;&#x6570;</h3>
+<pre><code>$ awk &apos;{
+&gt; Ip[$3]++;
+&gt; }
+&gt; END{
+&gt; for (var in Ip)
+&gt; print var, &quot;access&quot;, Ip[var],&quot; times&quot;
+&gt; }
+&gt; &apos; Iplogs.txt
+125.25.45.221 access 1  times
+123.12.23.122 access 1  times
+164.78.22.64 access 1  times
+202.188.3.2 access 2  times
+202.178.23.4 access 3  times
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x811A;&#x672C;&#x4E2D;&#xFF1A;</p>
+<ul>
+<li>&#x7B2C;&#x4E09;&#x4E2A;&#x57DF;($3)&#x662F;&#x4E00;&#x4E2A;IP&#x5730;&#x5740;&#xFF0C;&#x7528;&#x6765;&#x4F5C;&#x4E3A;Ip&#x6570;&#x7EC4;&#x7684;&#x4E0B;&#x6807;</li>
+<li>&#x5BF9;&#x4E8E;&#x6BCF;&#x4E00;&#x884C;&#xFF0C;&#x4F1A;&#x589E;&#x52A0;&#x5BF9;&#x5E94;IP&#x5730;&#x5740;&#x4E0B;&#x6807;&#x7684;&#x503C;</li>
+<li>&#x6700;&#x540E;&#x5728;END&#x90E8;&#x5206;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x4E0B;&#x6807;&#x5C31;&#x662F;&#x552F;&#x4E00;&#x7684;IP&#x5730;&#x5740;&#xFF0C;&#x5B83;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x5C31;&#x662F;&#x8BF7;&#x6C42;&#x7684;&#x6B21;&#x6570;</li>
+</ul>
+<h3 id="&#x4F8B;2-&#x5217;&#x51FA;&#x6240;&#x6709;&#x7684;ip&#x5730;&#x5740;&#x5E76;&#x4E14;&#x8BA1;&#x7B97;&#x51FA;&#x5B83;&#x8BBF;&#x95EE;&#x4E86;&#x591A;&#x5C11;&#x7F51;&#x7AD9;">&#x4F8B;2 &#x5217;&#x51FA;&#x6240;&#x6709;&#x7684;IP&#x5730;&#x5740;&#x5E76;&#x4E14;&#x8BA1;&#x7B97;&#x51FA;&#x5B83;&#x8BBF;&#x95EE;&#x4E86;&#x591A;&#x5C11;&#x7F51;&#x7AD9;</h3>
+<p>&#x2002;&#x2002;&#x2002;&#x2002;Iplogs.txt&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x57DF;&#x662F;&#x6BCF;&#x4E2A;IP&#x5730;&#x5740;&#x8BBF;&#x95EE;&#x7684;&#x7F51;&#x7AD9;&#x4E2A;&#x6570;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x811A;&#x672C;&#x751F;&#x6210;IP&#x5730;&#x5740;&#x7684;&#x5217;&#x8868;&#x548C;&#x5B83;&#x8BF7;&#x6C42;&#x7684;&#x7F51;&#x5173;&#x6B21;&#x6570;&#x4EE5;&#x53CA;&#x5B83;&#x8BBF;&#x95EE;&#x7684;&#x7F51;&#x7AD9;&#x603B;&#x6570;&#x3002;</p>
+<pre><code>$cat ex2.awk
+BEGIN {
+print &quot;IP Address\tAccess Count\tNumber of sites&quot;;
+}
+{
+Ip[$3]++;
+count[$3]+=$NF;
+}
+END{
+for (var in Ip)
+    print var,&quot;\t&quot;,Ip[var],&quot;\t\t&quot;,count[var];
+}
+
+$ awk -f ex2.awk Iplogs.txt
+IP Address    Access Count    Number of sites
+125.25.45.221      1          153
+123.12.23.122      1          133
+164.78.22.64      1          12
+202.188.3.2      2          180
+202.178.23.4      3          110
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF1A;</p>
+<ul>
+<li>&#x5B83;&#x6709;&#x4E24;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x4E24;&#x4E2A;&#x6570;&#x7EC4;&#x7684;&#x4E0B;&#x6807;&#x76F8;&#x540C;&#xFF0C;&#x90FD;&#x662F;IP&#x5730;&#x5740;&#xFF08;&#x7B2C;&#x4E09;&#x4E2A;&#x57DF;&#xFF09;</li>
+<li>&#x7B2C;&#x4E00;&#x4E2A;IP&#x6570;&#x7EC4;&#x6709;&#x552F;&#x4E00;&#x7684;IP&#x5730;&#x5740;&#x548C;&#x5B83;&#x51FA;&#x73B0;&#x7684;&#x6B21;&#x6570;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;count&#x6570;&#x7EC4;&#x4F7F;&#x7528;IP&#x5730;&#x5740;&#x4F5C;&#x4E3A;&#x4E0B;&#x6807;&#xFF0C;&#x5E76;&#x4E14;&#x662F;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x57DF;&#xFF0C;&#x56E0;&#x6B64;&#x65E0;&#x8BBA;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x51FA;&#x73B0;IP&#x5730;&#x5740;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x57DF;&#x90FD;&#x4F1A;&#x589E;&#x52A0;</li>
+<li>&#x5728;END&#x90E8;&#x5206;&#xFF0C;&#x68C0;&#x67E5;&#x6240;&#x6709;&#x7684;IP&#x5730;&#x5740;&#x5E76;&#x4E14;&#x6253;&#x5370;&#x51FA;IP&#x5730;&#x5740;&#x548C;IP&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x8BBF;&#x95EE;&#x6B21;&#x6570;&#xFF0C;&#x4EE5;&#x53CA;count&#x6570;&#x7EC4;&#x4E2D;&#x8BBF;&#x95EE;&#x7F51;&#x7AD9;&#x7684;&#x6B21;&#x6570;</li>
+</ul>
+<h3 id="&#x4F8B;3-&#x67E5;&#x627E;&#x6700;&#x5927;&#x7684;&#x8BBF;&#x95EE;&#x65E5;&#x671F;">&#x4F8B;3 &#x67E5;&#x627E;&#x6700;&#x5927;&#x7684;&#x8BBF;&#x95EE;&#x65E5;&#x671F;</h3>
+<pre><code>$ cat ex3.awk
+{
+date[$1]++;
+}
+END{
+for (count in date)
+{
+    if ( max &lt; date[count] ) {
+        max = date[count];
+        maxdate = count;
+    }
+
+}
+print &quot;Maximum access is on&quot;, maxdate;
+}
+
+$ awk -f ex3.awk Iplogs.txt
+Maximum access is on 210607
+</code></pre><p>&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF1A;</p>
+<ul>
+<li>&apos;date&apos;&#x6570;&#x7EC4;&#x5C06;&#x65E5;&#x671F;&#x4F5C;&#x4E3A;&#x4E0B;&#x6807;&#xFF0C;&#x51FA;&#x73B0;&#x6B21;&#x6570;&#x4F5C;&#x4E3A;&#x503C;</li>
+<li>max&#x662F;&#x4E00;&#x4E2A;&#x8BA1;&#x6570;&#x53D8;&#x91CF;&#x7528;&#x6765;&#x627E;&#x5230;&#x62E5;&#x6709;&#x6700;&#x5927;&#x503C;&#x7684;&#x65E5;&#x671F;</li>
+<li>maxdate&#x662F;&#x62E5;&#x6709;&#x6700;&#x5927;&#x503C;&#x65E5;&#x671F;&#x7684;&#x53D8;&#x91CF;</li>
+</ul>
+<h3 id="&#x4F8B;4-&#x7FFB;&#x8F6C;&#x6587;&#x4EF6;&#x4E2D;&#x884C;&#x7684;&#x987A;&#x5E8F;">&#x4F8B;4 &#x7FFB;&#x8F6C;&#x6587;&#x4EF6;&#x4E2D;&#x884C;&#x7684;&#x987A;&#x5E8F;</h3>
+<pre><code>$ awk &apos;{ a[i++] = $0 } END { for (j=i-1; j&gt;=0;) print a[j--] }&apos; Iplogs.txt
+210607 132423    202.188.3.2 167
+210607 121435    202.178.23.4 32
+210607 084849   202.178.23.4 34
+200607 012312    202.188.3.2 13
+190607 084859   164.78.22.64 12
+190607 084849   202.178.23.4 44
+180607 121234    125.25.45.221 153
+180607 093423    123.12.23.122 133
+</code></pre><p>&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF1A;</p>
+<ul>
+<li>&#x5F00;&#x59CB;&#x65F6;&#x8BB0;&#x5F55;&#x6240;&#x6709;&#x7684;&#x884C;&#x5230;&#x6570;&#x7EC4;a</li>
+<li>&#x5F53;&#x7A0B;&#x5E8F;&#x5904;&#x7406;&#x5B8C;&#x6240;&#x6709;&#x7684;&#x884C;&#x540E;&#xFF0C;Awk&#x6267;&#x884C;END{}&#x5757;</li>
+<li>END&#x5757;&#x5FAA;&#x73AF;&#x6570;&#x7EC4;a&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;&#x5E76;&#x4E14;&#x4EE5;&#x53CD;&#x5E8F;&#x6253;&#x5370;&#x51FA;&#x8BB0;&#x5F55;&#x7684;&#x884C;</li>
+</ul>
+<h3 id="&#x4F8B;5-&#x7528;awk&#x5220;&#x9664;&#x91CD;&#x590D;&#x548C;&#x4E0D;&#x76F8;&#x90BB;&#x7684;&#x884C;">&#x4F8B;5 &#x7528;Awk&#x5220;&#x9664;&#x91CD;&#x590D;&#x548C;&#x4E0D;&#x76F8;&#x90BB;&#x7684;&#x884C;</h3>
+<pre><code>$ cat &gt; temp
+foo
+bar
+foo
+baz
+bar
+
+$ awk &apos;!($0 in array) { array[$0]; print }&apos; temp
+foo
+bar
+baz
+</code></pre><p>&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF1A;</p>
+<ul>
+<li>Awk&#x4ECE;temp&#x6587;&#x4EF6;&#x4E2D;&#x8BFB;&#x53D6;&#x6240;&#x6709;&#x884C;&#xFF0C;&#x4F7F;&#x7528;&apos;in&apos;&#x8FD0;&#x7B97;&#x7B26;&#x68C0;&#x67E5;&#x5F53;&#x524D;&#x884C;&#x662F;&#x5426;&#x5728;&#x6570;&#x7EC4;a&#x4E2D;&#x5B58;&#x5728;</li>
+<li>&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5B83;&#x4F1A;&#x50A8;&#x5B58;&#x5E76;&#x6253;&#x5370;&#x5F53;&#x524D;&#x884C;</li>
+</ul>
+<p>&#x6CE8;&#xFF1A;&#x7FFB;&#x8BD1;&#x81EA;<a href="http://www.thegeekstuff.com/2010/03/awk-arrays-explained-with-5-practical-examples/" target="_blank">&#x539F;&#x6587;&#x8FDE;&#x63A5;</a></p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./awk_loop.html" class="navigation navigation-prev " aria-label="Previous page: Awk循环"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./awk_operator.html" class="navigation navigation-next " aria-label="Next page: Awk运算符"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

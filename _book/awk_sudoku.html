@@ -1,0 +1,446 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Awk解决数独问题 | Awk Tutorial</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        <meta name="author" content="Qiansen">
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    
+    <link rel="prev" href="./awk_numeric_fun.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="9"
+        data-chapter-title="Awk解决数独问题"
+        data-filepath="awk_sudoku.md"
+        data-basepath="."
+        data-revision="Mon May 16 2016 14:07:24 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="awk_print.html">
+            
+                
+                    <a href="./awk_print.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Awk打印
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="awk_variables.html">
+            
+                
+                    <a href="./awk_variables.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Awk变量
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="awk_buildin.html">
+            
+                
+                    <a href="./awk_buildin.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Awk内置变量
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="awk_if.html">
+            
+                
+                    <a href="./awk_if.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Awk if语句
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="awk_loop.html">
+            
+                
+                    <a href="./awk_loop.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Awk循环
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="awk_array.html">
+            
+                
+                    <a href="./awk_array.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Awk数组
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="awk_operator.html">
+            
+                
+                    <a href="./awk_operator.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Awk运算符
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="awk_numeric_fun.html">
+            
+                
+                    <a href="./awk_numeric_fun.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        Awk数学函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="9" data-path="awk_sudoku.html">
+            
+                
+                    <a href="./awk_sudoku.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        Awk解决数独问题
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >Awk Tutorial</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x6570;&#x72EC;&#x95EE;&#x9898;">&#x6570;&#x72EC;&#x95EE;&#x9898;</h1>
+<p>&#x5C31;&#x662F;&#x7528;Awk&#x89E3;&#x51B3;&#x6570;&#x72EC;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x6570;&#x72EC;&#x73A9;&#x7684;&#x4E00;&#x822C;&#xFF0C;&#x91CD;&#x70B9;&#x8FD8;&#x662F;&#x770B;Awk&#x7684;&#x8BED;&#x6CD5;&#x3002;&#x53EA;&#x8D34;&#x4EE3;&#x7801;&#x5566;&#xFF1A;</p>
+<pre><code>#!/usr/bin/awk -f
+###############################################################################
+#
+# @(#) solve.awk - sudoku solver in awk using efficient backtracking algorithm
+# @(#) $Id: solve.awk,v 1.16 2008/03/24 04:04:44 bduncan Exp bduncan $
+# @(#) Copyright (C) 2005-2008, Bill Duncan, &lt;bduncan-sudoku@beachnet.org&gt;
+#
+# License:
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with this program.  If not, see http://www.gnu.org/licenses/.
+#
+# Description:
+#   - uses simple recursive backtracking algorithm with up-front and
+#     ongoing elimination of invalid tries by tracking for each row,
+#     column and region..
+#
+# Notes:
+#   - precalc of regmap didn&apos;t seem to make a difference
+#   - removed unmark() function and added a parameter to mark()
+#
+# Variables:
+#   regmap[r,c]      ; pre-compiled, which region sector is r,c
+#   master[r,c]      ; master matrix
+#   C[col, elem]     ; true if elem in Column
+#   R[row, elem]     ; true if elem in Row
+#   Q[reg, elem]     ; true if elem in Region (Quadrant)
+#
+###############################################################################
+
+BEGIN {
+  SUBSEP    = &quot;,&quot;    # so we can dump and it looks nice
+  ORDER     = 9
+  DEBUG     = 0
+  count     = 0
+
+  # precompile region map for faster lookup
+# for (i = 0; i &lt; ORDER; i++)
+#   for (j = 0; j &lt; ORDER; j++)
+#     regmap[i+1,j+1]  =  int(i/3)*3+int(j/3)+1
+}
+
+
+
+function dump(   i,j) {
+  printf &quot;\n&quot;
+  for (i=1;i&lt;=ORDER;i++) {
+    if (!((i-1)%3)) printf &quot;\n&quot;
+    for (j=1;j&lt;=ORDER;j++) {
+      if (!((j-1)%3)) printf &quot; &quot;
+      printf &quot; %1d&quot;,master[i,j]
+    }
+    printf &quot;\n&quot;
+  }
+  printf &quot;\n&quot;
+}
+
+
+function fregmap(r,c) {
+# return regmap[r,c]
+  return int((r-1)/3)*3+int((c-1)/3)+1
+}
+
+
+function inuse(r,c,try) {
+  # q = fregmap(r,c)
+  # can we use it or is it in use?  returns true if already used, not avail
+  return (C[c,try] || R[r,try] || Q[fregmap(r,c),try])
+}
+
+function mark(r,c,try, flag,          q) {
+  q = fregmap(r,c)
+  Q[q,try]    = flag
+  R[r,try]    = flag
+  C[c,try]    = flag
+  master[r,c] = flag ? try : 0
+}
+
+
+function search(r,c,   q,i,a,try) {
+  # find the next empty slot from here r,c
+  # if we&apos;ve reached the end (no more empty) do check?
+  # for each available number, recurse search
+  count++
+
+  while (master[r,c]) {
+    if (++c &gt;  ORDER) {
+      c = 1
+      if (++r &gt;  ORDER) {
+        # then we&apos;re done filling!  return goodness
+        return 1
+      }
+    }
+  }
+
+  # for each of the available numbers for this slot
+  for (try=1; try &lt;= ORDER; try++) {
+    if (! inuse(r,c,try)) {
+      mark(r,c,try, 1)
+      if (search(r,c)) return 1
+    # else zero returned -- unwind
+      mark(r,c,try, 0)  # unmark
+    }
+  }
+
+  return 0
+}
+
+
+############
+# PATTERNS #
+############
+
+NF == 0       { next }
+$1 ~ /^#/     { next }
+
+NF != ORDER       {
+  printf &quot;error on line %d, NF=%d\n&quot;, FNR, NF
+  exit 1
+}
+
+{
+  ++row
+  for (col=1; col &lt;= ORDER; col++) {
+    mark(row,col,$col, 1)
+  }
+}
+
+
+END {
+  search(1,1)
+
+  printf &quot;\n# Searches=%d\n&quot;, count
+  dump()
+}
+</code></pre>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./awk_numeric_fun.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Awk数学函数"><i class="fa fa-angle-left"></i></a>
+        
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

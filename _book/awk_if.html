@@ -1,0 +1,411 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Awk if语句 | Awk Tutorial</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        <meta name="author" content="Qiansen">
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./awk_loop.html" />
+    
+    
+    <link rel="prev" href="./awk_buildin.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="4"
+        data-chapter-title="Awk if语句"
+        data-filepath="awk_if.md"
+        data-basepath="."
+        data-revision="Mon May 16 2016 14:07:24 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="awk_print.html">
+            
+                
+                    <a href="./awk_print.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Awk打印
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="awk_variables.html">
+            
+                
+                    <a href="./awk_variables.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Awk变量
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="awk_buildin.html">
+            
+                
+                    <a href="./awk_buildin.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Awk内置变量
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="4" data-path="awk_if.html">
+            
+                
+                    <a href="./awk_if.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Awk if语句
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="awk_loop.html">
+            
+                
+                    <a href="./awk_loop.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Awk循环
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="awk_array.html">
+            
+                
+                    <a href="./awk_array.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Awk数组
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="awk_operator.html">
+            
+                
+                    <a href="./awk_operator.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Awk运算符
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="awk_numeric_fun.html">
+            
+                
+                    <a href="./awk_numeric_fun.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        Awk数学函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="awk_sudoku.html">
+            
+                
+                    <a href="./awk_sudoku.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        Awk解决数独问题
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >Awk Tutorial</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="4&#x4E2A;awk&#x7684;if&#x8BED;&#x53E5;&#x5B9E;&#x4F8B;">4&#x4E2A;Awk&#x7684;If&#x8BED;&#x53E5;&#x5B9E;&#x4F8B;</h1>
+<p>&#x2002;&#x2002;&#x2002;&#x2002;&#x5728;&#x8FD9;&#x7BC7;&#x6559;&#x7A0B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x5B9E;&#x4F8B;&#x6765;&#x770B;&#x4E00;&#x4E0B;Awk&#x7684;&#x6761;&#x4EF6;&#x5224;&#x65AD;&#x8BED;&#x53E5;&#x2014;if(&#x548C;&#x5176;&#x4ED6;&#x8BED;&#x8A00;&#x7684;&#x57FA;&#x672C;&#x4E00;&#x6837;&#xFF0C;&#x6D4F;&#x89C8;&#x4E00;&#x4E0B;&#x5C31;&#x53EF;&#x4EE5;&#x5566;)&#x3002;</p>
+<p>&#x2002;&#x2002;&#x2002;&#x2002;Awk&#x652F;&#x6301;&#x8BB8;&#x591A;&#x6761;&#x4EF6;&#x5224;&#x65AD;&#x8BED;&#x53E5;&#x6765;&#x63A7;&#x5236;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x7684;&#x6D41;&#x7A0B;&#xFF0C;&#x5927;&#x591A;&#x6570;Awk&#x7684;&#x6761;&#x4EF6;&#x63A7;&#x5236;&#x8BED;&#x53E5;&#x8BED;&#x6CD5;&#x548C;C&#x8BED;&#x8A00;&#x7684;&#x5F88;&#x50CF;&#x3002;</p>
+<p>&#x2002;&#x2002;&#x2002;&#x2002;&#x901A;&#x5E38;&#xFF0C;&#x6761;&#x4EF6;&#x5224;&#x65AD;&#x8BED;&#x53E5;&#x5728;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x64CD;&#x4F5C;&#x524D;&#x5148;&#x68C0;&#x67E5;&#x6761;&#x4EF6;&#x3002;&#x5982;&#x679C;&#x6761;&#x4EF6;&#x4E3A;&#x771F;&#xFF0C;&#x64CD;&#x4F5C;&#x5C31;&#x4F1A;&#x6267;&#x884C;&#xFF0C;&#x540C;&#x6837;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x6761;&#x4EF6;&#x4E3A;&#x5047;&#xFF0C;&#x64CD;&#x4F5C;&#x4E5F;&#x80FD;&#x6267;&#x884C;&#x3002;(&#x53CD;&#x6B63;&#x5C31;&#x662F;&#x548C;C&#x8BED;&#x8A00;&#x7684;&#x4E00;&#x6837;&#x5566;&#xFF0C;&#x539F;&#x6587;&#x76F4;&#x8BD1;&#x5C31;&#x662F;&#x8FD9;&#x6837;&#x7684;&#x5440;)</p>
+<p>&#x2002;&#x2002;&#x2002;&#x2002;&#x6761;&#x4EF6;&#x5224;&#x65AD;&#x8BED;&#x53E5;&#x7528;&#x5173;&#x952E;&#x5B57;<code>&apos;if&apos;</code>&#x5F00;&#x59CB;&#xFF0C;Awk&#x652F;&#x6301;&#x4E24;&#x79CD;&#x4E0D;&#x540C;&#x7684;<code>if</code>&#x8BED;&#x53E5;&#x3002;</p>
+<ul>
+<li>&#x7B80;&#x5355;&#x7684;<code>if</code>&#x8BED;&#x53E5;</li>
+<li><code>if-else</code>&#x8BED;&#x53E5;</li>
+<li><code>if-else if</code>&#x8BED;&#x53E5;</li>
+</ul>
+<h3 id="&#x7B80;&#x5355;&#x7684;if&#x8BED;&#x53E5;">&#x7B80;&#x5355;&#x7684;<code>if</code>&#x8BED;&#x53E5;</h3>
+<p><strong>&#x5355;&#x6307;&#x4EE4;:</strong> &#x7B80;&#x5355;&#x7684;<code>if</code>&#x8BED;&#x53E5;&#x7528;&#x6765;&#x68C0;&#x67E5;&#x6761;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x6761;&#x4EF6;&#x8FD4;&#x56DE;<code>&#x771F;</code>&#xFF0C;&#x5C31;&#x4F1A;&#x6267;&#x884C;&#x5BF9;&#x5E94;&#x7684;&#x64CD;&#x4F5C;</p>
+<pre><code>&#x8BED;&#x6CD5;&#xFF1A;
+if (conditional-expression)
+    action
+</code></pre><ul>
+<li><code>if</code>&#x662F;&#x4E00;&#x4E2A;&#x5173;&#x952E;&#x5B57;</li>
+<li><code>conditional-expression</code>&#x662F;&#x6761;&#x4EF6;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x68C0;&#x67E5;&#x6761;&#x4EF6;&#x662F;&#x5426;&#x6B63;&#x786E;</li>
+<li><code>action</code>&#x662F;&#x4EFB;&#x4F55;Awk&#x7684;&#x6267;&#x884C;&#x8BED;&#x53E5;</li>
+</ul>
+<p><strong>&#x591A;&#x6307;&#x4EE4;:</strong> &#x5982;&#x679C;&#x6761;&#x4EF6;&#x8868;&#x8FBE;&#x5F0F;&#x8FD4;&#x56DE;<code>&#x771F;</code>&#xFF0C;&#x64CD;&#x4F5C;&#x5C31;&#x4F1A;&#x6267;&#x884C;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x6B62;&#x4E00;&#x6761;&#x6307;&#x4EE4;&#x9700;&#x8981;&#x6267;&#x884C;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E9B;&#x6307;&#x4EE4;&#x5E94;&#x8BE5;&#x653E;&#x5230;&#x82B1;&#x62EC;&#x53F7;&#x4E2D;&#xFF0C;&#x6BCF;&#x6761;&#x6307;&#x4EE4;&#x4E00;&#x884C;&#x6216;&#x8005;&#x7528;&#x5206;&#x53F7;&#x5206;&#x5F00;&#xFF0C;&#x5C31;&#x50CF;&#x4E0B;&#x9762;&#xFF1A;</p>
+<pre><code>&#x8BED;&#x6CD5;&#xFF1A;
+if (conditional-expression)
+{
+    action1;
+    action2;
+}
+</code></pre><p>&#x5982;&#x679C;&#x6761;&#x4EF6;&#x4E3A;&#x771F;&#xFF0C;&#x82B1;&#x62EC;&#x53F7;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6307;&#x4EE4;&#x90FD;&#x4F1A;&#x6309;&#x987A;&#x5E8F;&#x6267;&#x884C;&#xFF0C;&#x5F53;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x6307;&#x4EE4;&#x90FD;&#x6267;&#x884C;&#x5B8C;&#x540E;&#xFF0C;&#x5C31;&#x4F1A;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x8BED;&#x53E5;&#x3002;</p>
+<h3 id="if-else&#x8BED;&#x53E5;"><code>if else</code>&#x8BED;&#x53E5;</h3>
+<p>&#x5728;&#x4E0A;&#x9762;&#x7B80;&#x5355;&#x7684;<code>if</code>&#x8BED;&#x53E5;&#x4E2D;&#xFF0C;&#x6CA1;&#x6709;&#x6761;&#x4EF6;&#x4E3A;&#x5047;&#x65F6;&#x6267;&#x884C;&#x7684;&#x6307;&#x4EE4;&#xFF0C;&#x5728;<code>if else</code>&#x8BED;&#x53E5;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x6761;&#x4EF6;&#x4E3A;&#x5047;&#x65F6;&#x8981;&#x6267;&#x884C;&#x7684;&#x6307;&#x4EE4;&#xFF0C;&#x5982;&#x679C;&#x6761;&#x4EF6;&#x4E3A;&#x771F;&#xFF0C;&#x6307;&#x4EE4;1&#x6267;&#x884C;&#xFF0C;&#x5982;&#x679C;&#x6761;&#x4EF6;&#x4E3A;&#x5047;&#xFF0C;&#x6307;&#x4EE4;2&#x6267;&#x884C;&#x3002;</p>
+<pre><code>&#x8BED;&#x6CD5;&#xFF1A;
+if (conditional-expression)
+    action1
+else
+    action2
+</code></pre><p>Awk&#x4E5F;&#x6709;&#x6761;&#x4EF6;&#x8FD0;&#x7B97;&#x7B26;&#xFF0C;&#x5C31;&#x662F;&#x4E09;&#x5143;&#x64CD;&#x4F5C;&#x7B26;&#x2014;<code>&#xFF1F;&#xFF1A;</code>&#xFF0C;&#x5B83;&#x7684;&#x529F;&#x80FD;&#x5C31;&#x50CF;&#x662F;<code>if else</code>&#x8BED;&#x53E5;&#xFF0C;&#x5982;&#x679C;&#x6761;&#x4EF6;&#x5224;&#x65AD;&#x4E3A;&#x771F;&#xFF0C;&#x6307;&#x4EE4;1&#x6267;&#x884C;&#xFF0C;&#x5982;&#x679C;&#x6761;&#x4EF6;&#x5224;&#x65AD;&#x4E3A;&#x5047;&#xFF0C;&#x6307;&#x4EE4;2&#x6267;&#x884C;&#x3002;</p>
+<pre><code>&#x8BED;&#x6CD5;&#xFF1A;
+conditional-expression ? action1 : action2 ;
+</code></pre><h3 id="if-else-if&#x8BED;&#x53E5;"><code>if else if</code>&#x8BED;&#x53E5;</h3>
+<pre><code>&#x8BED;&#x53E5;&#xFF1A;
+if(conditional-expression1)
+    action1;
+else if(conditional-expression2)
+    action2;
+else if(conditional-expression3)
+    action3;
+      .
+      .
+else
+    action n;
+</code></pre><ul>
+<li>&#x5982;&#x679C;&#x6761;&#x4EF6;&#x8868;&#x8FBE;&#x5F0F;1&#x4E3A;&#x771F;&#xFF0C;&#x6307;&#x4EE4;1&#x5C31;&#x4F1A;&#x88AB;&#x6267;&#x884C;</li>
+<li>&#x5982;&#x679C;&#x6761;&#x4EF6;&#x8868;&#x8FBE;&#x5F0F;1&#x4E3A;&#x5047;&#xFF0C;&#x5C31;&#x4F1A;&#x68C0;&#x67E5;&#x6761;&#x4EF6;&#x8868;&#x8FBE;&#x5F0F;2&#xFF0C;&#x6307;&#x4EE4;2&#x5C31;&#x4F1A;&#x88AB;&#x6267;&#x884C;&#xFF0C;&#x5C31;&#x8FD9;&#x6837;&#x4E00;&#x76F4;&#x8FDB;&#x884C;&#x4E0B;&#x53BB;&#xFF1B;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6761;&#x4EF6;&#x8868;&#x8FBE;&#x5F0F;&#x4E3A;&#x771F;&#xFF0C;<code>else</code>&#x90E8;&#x5206;&#x7684;&#x6307;&#x4EE4;&#x5C31;&#x4F1A;&#x6267;&#x884C;</li>
+</ul>
+<h2 id="">----</h2>
+<p>&#x2002;&#x2002;&#x2002;&#x2002;&#x73B0;&#x5728;&#xFF0C;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B66;&#x751F;&#x5206;&#x6570;&#x7684;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code>$cat student-marks
+Jones 2143 78 84 77
+Gondrol 2321 56 58 45
+RinRao 2122 38 37
+Edwin 2537 87 97 95
+Dayan 2415 30 47
+</code></pre><h3 id="if&#x4F8B;&#x5B50;&#xFF1A;&#x68C0;&#x67E5;&#x6240;&#x6709;&#x7684;&#x5206;&#x6570;&#x662F;&#x5426;&#x90FD;&#x5B58;&#x5728;"><code>if</code>&#x4F8B;&#x5B50;&#xFF1A;&#x68C0;&#x67E5;&#x6240;&#x6709;&#x7684;&#x5206;&#x6570;&#x662F;&#x5426;&#x90FD;&#x5B58;&#x5728;</h3>
+<pre><code>$ awk &apos;{
+if ($3 ==&quot;&quot; || $4 == &quot;&quot; || $5 == &quot;&quot;)
+    print &quot;Some score for the student&quot;,$1,&quot;is missing&quot;;
+}&apos; student-marks
+Some score for the student RinRao is missing
+Some score for the student Dayan is missing
+</code></pre><p>$3&#x3001;$4&#x3001;$5&#x662F;&#x5B66;&#x751F;&#x7684;&#x68C0;&#x6D4B;&#x6210;&#x7EE9;&#xFF0C;&#x5982;&#x679C;&#x6210;&#x7EE9;&#x4E3A;&#x7A7A;&#xFF0C;&#x5C31;&#x4F1A;&#x6253;&#x5370;&#x51FA;&#x6D88;&#x606F;&#x3002;<code>||</code>&#x8FD0;&#x7B97;&#x7B26;&#x662F;&#x4E3A;&#x4E86;&#x5F53;&#x5176;&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x6210;&#x7EE9;&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x6253;&#x5370;&#x6D88;&#x606F;&#x3002;(&#x5C31;&#x662F;<code>&#x6216;</code>&#x5566;)</p>
+<h3 id="if-else&#x4F8B;&#x5B50;&#xFF1A;&#x5728;&#x5B66;&#x751F;&#x6BCF;&#x79D1;&#x5206;&#x6570;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x4EA7;&#x751F;&#x662F;&#x5426;&#x901A;&#x8FC7;&#x7684;&#x62A5;&#x544A;"><code>if else</code>&#x4F8B;&#x5B50;&#xFF1A;&#x5728;&#x5B66;&#x751F;&#x6BCF;&#x79D1;&#x5206;&#x6570;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x4EA7;&#x751F;&#x662F;&#x5426;&#x901A;&#x8FC7;&#x7684;&#x62A5;&#x544A;</h3>
+<pre><code>$ awk &apos;{
+if ($3 &gt;=35 &amp;&amp; $4 &gt;= 35 &amp;&amp; $5 &gt;= 35)
+    print $0,&quot;=&gt;&quot;,&quot;Pass&quot;;
+else
+    print $0,&quot;=&gt;&quot;,&quot;Fail&quot;;
+}&apos; student-marks
+Jones 2143 78 84 77 =&gt; Pass
+Gondrol 2321 56 58 45 =&gt; Pass
+RinRao 2122 38 37 =&gt; Fail
+Edwin 2537 87 97 95 =&gt; Pass
+Dayan 2415 30 47 =&gt; Fail
+</code></pre><p>&#x901A;&#x8FC7;&#x7684;&#x6761;&#x4EF6;&#x662F;&#x6240;&#x6709;&#x7684;&#x6D4B;&#x8BD5;&#x5206;&#x6570;&#x90FD;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;35&#xFF0C;&#x56E0;&#x6B64;&#x7A0B;&#x5E8F;&#x4F1A;&#x68C0;&#x67E5;&#x6240;&#x6709;&#x7684;&#x6D4B;&#x8BD5;&#x5206;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;35&#xFF0C;&#x5C31;&#x4F1A;&#x6253;&#x5370;&#x51FA;&#x6574;&#x884C;&#x4FE1;&#x606F;&#x548C;<code>Pass</code>&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5426;&#x5219;&#xFF0C;&#x4EFB;&#x4F55;&#x4E00;&#x79D1;&#x7684;&#x6D4B;&#x8BD5;&#x5206;&#x6570;&#x6CA1;&#x6709;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;&#xFF0C;&#x5C31;&#x4F1A;&#x6253;&#x5370;&#x51FA;&#x6574;&#x884C;&#x548C;<code>Fail</code>&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<h3 id="if-else-if&#x4F8B;&#x5B50;&#xFF1A;&#x627E;&#x51FA;&#x6BCF;&#x4E2A;&#x5B66;&#x751F;&#x7684;&#x5E73;&#x5747;&#x6210;&#x7EE9;&#x548C;&#x7B49;&#x7EA7;"><code>if else if</code>&#x4F8B;&#x5B50;&#xFF1A;&#x627E;&#x51FA;&#x6BCF;&#x4E2A;&#x5B66;&#x751F;&#x7684;&#x5E73;&#x5747;&#x6210;&#x7EE9;&#x548C;&#x7B49;&#x7EA7;</h3>
+<pre><code>$ cat grade.awk
+{
+total=$3+$4+$5;
+avg=total/3;
+if ( avg &gt;= 90 ) grade=&quot;A&quot;;
+else if ( avg &gt;= 80) grade =&quot;B&quot;;
+else if (avg &gt;= 70) grade =&quot;C&quot;;
+else grade=&quot;D&quot;;
+print $0,&quot;=&gt;&quot;,grade;
+}
+$ awk -f grade.awk student-marks
+Jones 2143 78 84 77 =&gt; C
+Gondrol 2321 56 58 45 =&gt; D
+RinRao 2122 38 37 =&gt; D
+Edwin 2537 87 97 95 =&gt; A
+Dayan 2415 30 47 =&gt; D
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;Awk&#x811A;&#x672C;&#x4E2D;&#xFF0C;<code>avg</code>&#x53D8;&#x91CF;&#x5B58;&#x653E;&#x4E09;&#x6B21;&#x6D4B;&#x8BD5;&#x5206;&#x6570;&#x7684;&#x5E73;&#x5747;&#x6210;&#x7EE9;&#x3002;&#x5982;&#x679C;&#x5E73;&#x5747;&#x6210;&#x7EE9;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;90&#xFF0C;&#x7B49;&#x7EA7;&#x662F;<code>A</code>&#xFF0C;&#x5982;&#x679C;&#x6210;&#x7EE9;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;80&#xFF0C;&#x7B49;&#x7EA7;&#x662F;<code>B</code>&#xFF0C;&#x5982;&#x679C;&#x5E73;&#x5747;&#x6210;&#x7EE9;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;70&#xFF0C;&#x7B49;&#x7EA7;&#x662F;<code>C</code>&#xFF0C;&#x5426;&#x5219;&#xFF0C;&#x7B49;&#x7EA7;&#x662F;<code>D</code>&#x3002;</p>
+<h3 id="&#x4E09;&#x5143;&#x8FD0;&#x7B97;&#x7B26;&#xFF1F;&#xFF1A;&#x4F8B;&#x5B50;&#xFF1A;&#x6BCF;&#x4E09;&#x884C;&#x7528;&#x9017;&#x53F7;&#x8FDE;&#x6210;&#x4E00;&#x884C;">&#x4E09;&#x5143;&#x8FD0;&#x7B97;&#x7B26;<code>&#xFF1F;&#xFF1A;</code>&#x4F8B;&#x5B50;&#xFF1A;&#x6BCF;&#x4E09;&#x884C;&#x7528;&#x9017;&#x53F7;&#x8FDE;&#x6210;&#x4E00;&#x884C;</h3>
+<pre><code>$ awk &apos;ORS=NR%3?&quot;,&quot;:&quot;\n&quot;&apos; student-marks
+Jones 2143 78 84 77,Gondrol 2321 56 58 45,RinRao 2122 38 37
+Edwin 2537 87 97 95,Dayan 2415 30 47,
+</code></pre><p>&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E09;&#x884C;&#x7528;&#x9017;&#x53F7;&#x8FDE;&#x6210;&#x4E86;&#x4E00;&#x884C;&#xFF0C;1&#x3001;2&#x884C;&#x540E;&#x9762;&#x90FD;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#xFF0C;&#x7B2C;&#x4E09;&#x884C;&#x540E;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x884C;&#xFF1B;4&#x3001;5&#x884C;&#x540E;&#x9762;&#x90FD;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#xFF0C;&#x7B2C;&#x516D;&#x884C;&#x540E;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x884C;(&#x8FD9;&#x91CC;&#x6CA1;&#x6709;&#x7B2C;&#x516D;&#x884C;)......</p>
+<p>&#x6CE8;&#xFF1A;&#x7FFB;&#x8BD1;&#x81EA;<a href="http://www.thegeekstuff.com/2010/02/awk-conditional-statements/" target="_blank">&#x539F;&#x6587;&#x94FE;&#x63A5;</a></p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./awk_buildin.html" class="navigation navigation-prev " aria-label="Previous page: Awk内置变量"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./awk_loop.html" class="navigation navigation-next " aria-label="Next page: Awk循环"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

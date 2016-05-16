@@ -1,0 +1,455 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Awk数学函数 | Awk Tutorial</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        <meta name="author" content="Qiansen">
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./awk_sudoku.html" />
+    
+    
+    <link rel="prev" href="./awk_operator.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="8"
+        data-chapter-title="Awk数学函数"
+        data-filepath="awk_numeric_fun.md"
+        data-basepath="."
+        data-revision="Mon May 16 2016 14:07:24 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="awk_print.html">
+            
+                
+                    <a href="./awk_print.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Awk打印
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="awk_variables.html">
+            
+                
+                    <a href="./awk_variables.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Awk变量
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="awk_buildin.html">
+            
+                
+                    <a href="./awk_buildin.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Awk内置变量
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="awk_if.html">
+            
+                
+                    <a href="./awk_if.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Awk if语句
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="awk_loop.html">
+            
+                
+                    <a href="./awk_loop.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Awk循环
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="awk_array.html">
+            
+                
+                    <a href="./awk_array.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Awk数组
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="awk_operator.html">
+            
+                
+                    <a href="./awk_operator.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Awk运算符
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="8" data-path="awk_numeric_fun.html">
+            
+                
+                    <a href="./awk_numeric_fun.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        Awk数学函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="awk_sudoku.html">
+            
+                
+                    <a href="./awk_sudoku.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        Awk解决数独问题
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >Awk Tutorial</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="9&#x4E2A;&#x5F3A;&#x5927;&#x7684;&#x5185;&#x7F6E;&#x6570;&#x5B66;&#x51FD;&#x6570;">9&#x4E2A;&#x5F3A;&#x5927;&#x7684;&#x5185;&#x7F6E;&#x6570;&#x5B66;&#x51FD;&#x6570;</h1>
+<p>&#x2002;&#x2002;&#x2002;&#x2002;&#x548C;Awk&#x5185;&#x7F6E;&#x53D8;&#x91CF;&#x76F8;&#x4F3C;&#xFF0C;Awk&#x4E5F;&#x6709;&#x4E00;&#x4E9B;&#x6570;&#x5B57;&#x3001;&#x5B57;&#x7B26;&#x4E32;&#x3001;&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x64CD;&#x4F5C;&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;&#x3002;Awk&#x6709;&#x4E0B;&#x9762;&#x4E09;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x9AD8;&#x7EA7;&#x5185;&#x7F6E;&#x51FD;&#x6570;&#x3002;</p>
+<ul>
+<li>&#x6570;&#x5B57;&#x64CD;&#x4F5C;&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;</li>
+<li>&#x5B57;&#x7B26;&#x4E32;&#x64CD;&#x4F5C;&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;</li>
+<li>&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x64CD;&#x4F5C;&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;</li>
+</ul>
+<p>&#x5BF9;&#x4E8E;&#x521A;&#x63A5;&#x89E6;Awk&#x7684;&#x4EBA;&#x6765;&#x8BF4;&#xFF0C;&#x53EF;&#x4EE5;&#x67E5;&#x9605;&#x4E4B;&#x524D;&#x7684;<a href="awk_print.html">Awk&#x7B80;&#x4ECB;</a>&#x3001;<a href="awk_variables.html">Awk&#x53D8;&#x91CF;</a>&#x548C;<a href="awk_operator.html">Awk&#x64CD;&#x4F5C;</a>&#x3002;</p>
+<p>&#x5728;&#x8FD9;&#x7BC7;&#x6587;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x5B66;&#x4E60;Awk&#x7684;&#x5185;&#x7F6E;&#x6570;&#x5B57;&#x51FD;&#x6570;&#x3002;</p>
+<h2 id="awk&#x7684;intn&#x51FD;&#x6570;">Awk&#x7684;int(n)&#x51FD;&#x6570;</h2>
+<p><code>int()</code>&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7ED9;&#x5B9A;&#x53C2;&#x6570;&#x7684;&#x6574;&#x6570;&#x90E8;&#x5206;&#x3002;&#x5B83;&#x4F1A;&#x4EA7;&#x751F;&#x7ED9;&#x5B9A;&#x7684;n&#x7684;&#x6700;&#x5C0F;&#x6574;&#x6570;&#x90E8;&#x5206;&#xFF0C;n&#x662F;&#x4EFB;&#x610F;&#x6709;&#x6216;&#x6CA1;&#x6709;&#x5C0F;&#x6570;&#x70B9;&#x7684;&#x6570;&#x5B57;&#xFF0C;&#x5982;&#x679C;&#x8F93;&#x5165;&#x6574;&#x6570;&#xFF0C;&#x5B83;&#x4F1A;&#x8FD4;&#x56DE;&#x76F8;&#x540C;&#x7684;&#x6570;&#xFF0C;&#x800C;&#x5BF9;&#x4E8E;&#x6709;&#x5C0F;&#x6570;&#x70B9;&#x7684;&#x6570;&#x5B57;&#xFF0C;&#x5B83;&#x4F1A;&#x622A;&#x53D6;&#x6574;&#x6570;&#x90E8;&#x5206;(&#x8BF4;&#x767D;&#x4E86;&#x5C31;&#x662F;&#x4E0D;&#x80FD;&#x56DB;&#x820D;&#x4E94;&#x5165;)&#x3002;</p>
+<h4 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h4>
+<pre><code>$ awk &apos;BEGIN{
+print int(3.534);
+print int(4);
+print int(-5.223);
+print int(-5);
+}&apos;
+3
+4
+-5
+-5
+</code></pre><h2 id="awk&#x7684;logn&#x51FD;&#x6570;">Awk&#x7684;log(n)&#x51FD;&#x6570;</h2>
+<p><code>log()</code>&#x51FD;&#x6570;&#x4EA7;&#x751F;&#x7ED9;&#x5B9A;&#x53C2;&#x6570;n&#x7684;&#x81EA;&#x7136;&#x5BF9;&#x6570;(&#x81EA;&#x7136;&#x5BF9;&#x6570;&#x7684;&#x5E95;&#x4E3A;e,&#x5176;&#x503C;&#x4E3A; 2.718281828459...)&#x3002;&#x53EA;&#x6709;&#x5F53;n&#x4E3A;&#x6B63;&#x6570;&#x65F6;<code>log()</code>&#x51FD;&#x6570;&#x8FD4;&#x56DE;n&#x7684;&#x81EA;&#x7136;&#x5BF9;&#x6570;&#x7684;&#x503C;&#xFF0C;&#x5982;&#x679C;n&#x662F;&#x4E00;&#x4E2A;&#x4E0D;&#x5408;&#x6CD5;&#x7684;&#x6570;&#xFF0C;&#x5B83;&#x4F1A;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x3002;</p>
+<h4 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h4>
+<pre><code>$ awk &apos;BEGIN{
+print log(12);
+print log(0);
+print log(1);
+print log(-1);
+}&apos;
+2.48491
+-inf
+0
+nan
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x8F93;&#x51FA;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;<code>log(0)</code>&#x662F;&#x65E0;&#x7A77;&#x7684;&#xFF0C;&#x7528;<code>-inf</code>&#x8868;&#x793A;&#xFF0C;&#x800C;<code>log(-1)</code>&#x4EA7;&#x751F;&#x9519;&#x8BEF;<code>nan</code>(&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x6570;)&#x3002;</p>
+<h2 id="awk&#x7684;sqrtn&#x51FD;&#x6570;">Awk&#x7684;sqrt(n)&#x51FD;&#x6570;</h2>
+<p>sqrt()&#x51FD;&#x6570;&#x4EA7;&#x751F;&#x7ED9;&#x5B9A;&#x6570;&#x5B57;n&#x7684;&#x6B63;&#x5E73;&#x65B9;&#x6839;&#xFF0C;&#x5B83;&#x63A5;&#x53D7;&#x6B63;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x5982;&#x679C;&#x53C2;&#x6570;n&#x662F;&#x8D1F;&#x6570;&#xFF0C;&#x5219;&#x4F1A;&#x4EA7;&#x751F;nan&#x9519;&#x8BEF;&#x3002;</p>
+<h4 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h4>
+<pre><code>$ awk &apos;BEGIN{
+print sqrt(16);
+print sqrt(0);
+print sqrt(-12);
+}&apos;
+4
+0
+nan
+</code></pre><h2 id="awk&#x7684;expn&#x51FD;&#x6570;">Awk&#x7684;exp(n)&#x51FD;&#x6570;</h2>
+<p><code>exp()</code>&#x51FD;&#x6570;&#x8FD4;&#x56DE;e&#x7684;n&#x6B21;&#x65B9;</p>
+<h4 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h4>
+<pre><code>$ awk &apos;BEGIN{
+print exp(123434346);
+print exp(0);
+print exp(-12);
+}&apos;
+inf
+1
+6.14421e-06
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x8F93;&#x51FA;&#x4E2D;&#xFF0C;exp(123434346)&#x8FD4;&#x56DE;&#x65E0;&#x7A77;&#x5927;&#x662F;&#x56E0;&#x4E3A;&#x6EA2;&#x51FA;&#x3002;</p>
+<h2 id="awk&#x7684;sinn&#x51FD;&#x6570;">Awk&#x7684;sin(n)&#x51FD;&#x6570;</h2>
+<p><code>sin()</code>&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x5F27;&#x5EA6;n&#x7684;&#x6B63;&#x5F26;&#x503C;</p>
+<h4 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h4>
+<pre><code>$ awk &apos;BEGIN {
+print sin(90);
+print sin(45);
+}&apos;
+0.893997
+0.850904
+</code></pre><h2 id="awk&#x7684;cosn&#x51FD;&#x6570;">Awk&#x7684;cos(n)&#x51FD;&#x6570;</h2>
+<p><code>cos()</code>&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x5F27;&#x5EA6;n&#x7684;&#x4F59;&#x5F26;&#x503C;</p>
+<h4 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h4>
+<pre><code>$ awk &apos;BEGIN {
+print cos(90);
+print cos(45);
+}&apos;
+-0.448074
+0.525322
+</code></pre><h2 id="awk&#x7684;atan2mn&#x51FD;&#x6570;">Awk&#x7684;atan2(m,n)&#x51FD;&#x6570;</h2>
+<p><code>atan2</code>()&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x5F27;&#x5EA6;m/n&#x7684;&#x53CD;&#x6B63;&#x5207;&#x503C;</p>
+<h4 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h4>
+<pre><code>$ awk &apos;BEGIN {
+print atan2(30,45);
+
+}&apos;
+0.588003
+</code></pre><h2 id="awk&#x7684;rand&#x51FD;&#x6570;">Awk&#x7684;rand()&#x51FD;&#x6570;</h2>
+<p><code>rand()</code>&#x51FD;&#x6570;&#x4EA7;&#x751F;0&#x5230;1&#x4E4B;&#x95F4;(&#x4E0D;&#x5305;&#x62EC;0&#x548C;1)&#x7684;(&#x4F2A;)&#x968F;&#x673A;&#x6570;&#x3002;&#x8FD0;&#x884C;&#x4E00;&#x6B21;awk&#x65F6;&#x4EA7;&#x751F;&#x7684;&#x6570;&#x5B57;&#x662F;&#x968F;&#x673A;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x8FDE;&#x7EED;&#x8FD0;&#x884C;&#x65F6;&#x4EA7;&#x751F;&#x7684;&#x6570;&#x5B57;&#x65F6;&#x53EF;&#x9884;&#x77E5;&#x7684;&#x3002;&#x56E0;&#x4E3A;Awk&#x4EA7;&#x751F;&#x968F;&#x673A;&#x6570;&#x7684;&#x7B97;&#x6CD5;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x4EA7;&#x751F;&#x7684;&#x6570;&#x5B57;&#x662F;&#x91CD;&#x590D;&#x7684;&#x3002;</p>
+<h4 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h4>
+<p>&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4EA7;&#x751F;1000&#x4E2A;0&#x5230;100&#x4E4B;&#x95F4;&#x7684;&#x968F;&#x673A;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x7EDF;&#x8BA1;&#x4E86;&#x6BCF;&#x4E2A;&#x6570;&#x5B57;&#x51FA;&#x73B0;&#x7684;&#x6B21;&#x6570;&#x3002;</p>
+<pre><code>$cat rand.awk
+BEGIN {
+while(i&lt;1000)
+{
+    n = int(rand()*100);
+    rnd[n]++;
+    i++;
+}
+for(i=0;i&lt;=100;i++) {
+    print i,&quot;Occured&quot;, rnd[i], &quot;times&quot;;
+    }
+}
+</code></pre><p>&#x8FD9;&#x662F;&#x4E0A;&#x9762;&#x811A;&#x672C;&#x7684;&#x4E00;&#x4E9B;&#x8F93;&#x51FA;</p>
+<pre><code>$awk -f rand.awk
+0 Occured 6 times
+1 Occured 16 times
+2 Occured 12 times
+3 Occured 6 times
+4 Occured 13 times
+5 Occured 13 times
+6 Occured 8 times
+7 Occured 7 times
+8 Occured 16 times
+9 Occured 9 times
+10 Occured 6 times
+11 Occured 9 times
+12 Occured 17 times
+13 Occured 12 times
+</code></pre><p>&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x8F93;&#x51FA;&#x53EF;&#x4EE5;&#x786E;&#x4FE1;&#xFF0C;<code>rand()</code>&#x51FD;&#x6570;&#x4F1A;&#x7ECF;&#x5E38;&#x4EA7;&#x751F;&#x91CD;&#x590D;&#x6570;&#x5B57;</p>
+<h2 id="awk&#x7684;srandn&#x51FD;&#x6570;">Awk&#x7684;srand(n)&#x51FD;&#x6570;</h2>
+<p><code>srand()</code>&#x51FD;&#x6570;&#x4F7F;&#x7528;&#x7ED9;&#x5B9A;&#x7684;&#x53C2;&#x6570;n&#x4F5C;&#x4E3A;&#x7684;&#x4EA7;&#x751F;&#x968F;&#x673A;&#x6570;&#x7684;&#x79CD;&#x5B50;&#xFF0C;&#x56E0;&#x6B64;&#x65E0;&#x8BBA;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#xFF0C;&#x5F53;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5B83;&#x90FD;&#x4F1A;&#x4ECE;n&#x5F00;&#x59CB;&#x4EA7;&#x751F;&#x968F;&#x673A;&#x6570;&#x3002;&#x5F53;&#x53C2;&#x6570;&#x7F3A;&#x7701;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F7F;&#x7528;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x4F5C;&#x4E3A;&#x968F;&#x673A;&#x6570;&#x79CD;&#x5B50;&#x3002;</p>
+<h4 id="&#x4F8B;&#x5B50;&#xFF1A;&#x4EA7;&#x751F;5&#x4E2A;&#x4ECE;5&#x5230;50&#x7684;&#x968F;&#x673A;&#x6570;">&#x4F8B;&#x5B50;&#xFF1A;&#x4EA7;&#x751F;5&#x4E2A;&#x4ECE;5&#x5230;50&#x7684;&#x968F;&#x673A;&#x6570;</h4>
+<pre><code>$cat srand.awk
+BEGIN {
+#initialize the seed with 5.
+srand(5);
+# Totally I want to generate 5 numbers.
+total=5;
+#maximum number is 50.
+max=50;
+count=0;
+while(count &lt; total) {
+    rnd = int(rand() * max);
+    if ( array[rnd] == 0 ) {
+        count++;
+        array[rnd]++;
+    }
+}
+for ( i=5; i&lt;=max; i++) {
+    if ( array[i] )
+        print i;
+    }
+}
+</code></pre><p>&#x5728;<code>srand.awk</code>&#x4E2D;&#xFF0C;&#x4F7F;&#x7528;<code>rand()</code>&#x51FD;&#x6570;&#x4EA7;&#x751F;&#x968F;&#x673A;&#x6570;&#x5E76;&#x4E58;&#x6700;&#x5927;&#x503C;&#x6765;&#x4EA7;&#x751F;&#x5C0F;&#x4E8E;50&#x7684;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x67E5;&#x770B;&#x4EA7;&#x751F;&#x7684;&#x6570;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x5728;&#x6570;&#x7EC4;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x5728;&#xFF0C;&#x5C06;&#x5B83;&#x4F5C;&#x4E3A;&#x4E0B;&#x6807;&#x6DFB;&#x52A0;&#x5230;&#x6570;&#x7EC4;&#x4E2D;&#xFF0C;&#x540C;&#x65F6;&#x589E;&#x52A0;&#x5FAA;&#x73AF;&#x6570;&#xFF0C;&#x8FD9;&#x6837;&#x5B83;&#x5C31;&#x4F1A;&#x4EA7;&#x751F;5&#x4E2A;&#x6570;&#x5B57;&#x3002;&#x6700;&#x540E;&#x901A;&#x8FC7;&#x5FAA;&#x73AF;&#x5C06;&#x6709;&#x503C;&#x7684;&#x6570;&#x7EC4;&#x4E0B;&#x6807;&#x6253;&#x5370;&#x51FA;&#x6765;&#x3002;</p>
+<p>&#x8FD9;&#x662F;&#x4E0A;&#x9762;&#x811A;&#x672C;&#x7684;&#x8F93;&#x51FA;&#xFF1A;</p>
+<pre><code>$ awk -f  srand.awk
+9
+15
+26
+37
+39
+</code></pre><p>&#x6CE8;&#xFF1A;&#x7FFB;&#x8BD1;&#x81EA;<a href="http://www.thegeekstuff.com/2010/03/9-powerful-awk-numeric-built-in-functions/" target="_blank">&#x539F;&#x6587;&#x94FE;&#x63A5;</a></p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./awk_operator.html" class="navigation navigation-prev " aria-label="Previous page: Awk运算符"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./awk_sudoku.html" class="navigation navigation-next " aria-label="Next page: Awk解决数独问题"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
